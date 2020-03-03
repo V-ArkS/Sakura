@@ -1,6 +1,6 @@
 import math
 class Circle:
-    dimention = 2
+    dimention = 11
     def __init__(self, radius):
         self.radius = radius
     def getArea(self):
@@ -9,7 +9,7 @@ class Circle:
         return 2 * math.pi * self.radius
 
 class Sphere:
-    dimention = 3
+    dimention = 22
     def __init__(self, radius):
         self.radius = radius
     def getSurfaceArea(self):
@@ -18,7 +18,7 @@ class Sphere:
         return 4 / 3 * math.pi * math.pow(self.radius, 3)
 
 class Cube:
-    dimention = 3
+    dimention = 33
     def __init__(self, edge_length):
         self.edge_length = edge_length
     def getSurfaceArea(self):
