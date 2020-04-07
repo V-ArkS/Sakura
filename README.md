@@ -11,7 +11,7 @@ By downloading the whole repository, you get a complete project and can be opene
 To make changes, create your own branch first, switch to the branch you created, and then modify files.<br />
 If you find something wrong of inappropriate (issues), raise it in "Issues". After the problem is solved, close the issue.<br />
 
-**In order to make this repository readable and tidy, please follow the basic instruction -- 'create your own branch'.**  
-**In another word, PLEASE DO NOT MAKE CHANGE DIRECTLY ON THE MASTER BRANCH when your project has not been finishied! **
+**In order to make this repository readable and tidy, please follow the basic instruction -- 'create your own branch'.** <br />
+**In another word, PLEASE DO NOT MAKE CHANGE DIRECTLY ON THE MASTER BRANCH when your project has not been finishied! **   <br />
 
 We can merge all the branches at a certain time (discussed by members and decided by our adorable managers)
