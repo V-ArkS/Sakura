@@ -1,0 +1,995 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      softERP 1
+      softCFM 1e-06
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.7695166449874623 -0.6212421808690595 -0.14799420865795615 1.0020014562440231
+  position -59.51063719883002 70.60165301405826 63.14643583358464
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Forest {
+  translation 3.86 0 0
+  shape [
+    6 -6
+    15 -6
+    14 -2
+  ]
+}
+Solid {
+  children [
+    DEF floor Shape {
+      appearance BakelitePlastic {
+        color "braun"
+      }
+      geometry Plane {
+        size 100 30
+      }
+    }
+  ]
+  boundingObject USE floor
+}
+DEF FL1 FloorLight {
+  translation 45 0 -6.5
+  bulbColor 1 0 0
+  supportColor 1 0 0
+  pointLightColor 1 0 0
+  pointLightIntensity 5
+}
+DEF FL2 FloorLight {
+  translation 45 0 -3.84
+  name "floor light(1)"
+  bulbColor 0 0 1
+  supportColor 0 0 1
+  pointLightColor 0 0 1
+  pointLightIntensity 5
+}
+DEF River Fluid {
+  translation 0 0.02 0
+  children [
+    DEF river Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 100 0.5 2
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river
+  locked TRUE
+}
+DEF F60 Fluid {
+  translation -10 0.02 13.5
+  children [
+    DEF river_60 Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 60 0.5 3
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river_60
+}
+DEF F45 Fluid {
+  translation -2.5 0.02 10.5
+  children [
+    DEF river_45 Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 45 0.5 3
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river_45
+}
+DEF F30 Fluid {
+  translation 5 0.02 7.5
+  children [
+    DEF river_30 Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 30 0.5 3
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river_30
+}
+DEF Start Solid {
+  translation -48.92 0.01 11.24
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.101961 1 0.054902
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(10)"
+  recognitionColors [
+    0.168627 0.901961 0.215686
+  ]
+}
+DEF end_1 Solid {
+  translation -8.74 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0.0156863
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(13)"
+  recognitionColors [
+    0 0 0
+  ]
+}
+DEF Start_2 Solid {
+  translation -7.01 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.101961 1 0.054902
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(11)"
+  recognitionColors [
+    0.168627 0.901961 0.215686
+  ]
+}
+DEF end_2 Solid {
+  translation 11.46 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0.0156863
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(14)"
+  recognitionColors [
+    1 0.0431373 0.137255
+  ]
+}
+DEF Start_3 Solid {
+  translation 13.12 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.101961 1 0.054902
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(12)"
+  recognitionColors [
+    0.168627 0.901961 0.215686
+  ]
+}
+DEF line_19_1 Solid {
+  translation -38 0.01 11.25
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 19 0.25
+      }
+    }
+  ]
+  name "solid(1)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF line_19_2 Solid {
+  translation -38 0.01 9.65
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 19 0.25
+      }
+    }
+  ]
+  name "solid(3)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF line_35_1 Solid {
+  translation -30 0.01 8.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 35 0.25
+      }
+    }
+  ]
+  name "solid(5)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF line_35_2 Solid {
+  translation -30 0.01 6.43
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 35 0.25
+      }
+    }
+  ]
+  name "solid(7)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF line_35_2 Solid {
+  translation -15 0.01 4.83
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 65 0.25
+      }
+    }
+  ]
+  name "solid(9)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF half-ring_1 Solid {
+  translation -28.5 0.01 10.45
+  rotation 0 1 0 1.57
+  scale 0.08 0.08 0.08
+  children [
+    CurvedRoadSegment {
+      width 3.25
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      totalAngle 3.14
+      subdivision 24
+      appearance PBRAppearance {
+        roughness 0.5
+        metalness 0.2
+      }
+    }
+  ]
+  name "solid(2)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF half-ring_2 Solid {
+  translation -47.4999 0.01 8.85
+  rotation 0 1 0 -1.57
+  scale 0.08 0.08 0.08
+  children [
+    CurvedRoadSegment {
+      width 3.25
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      totalAngle 3.14
+      subdivision 24
+      appearance PBRAppearance {
+        roughness 0.5
+        metalness 0.2
+      }
+    }
+  ]
+  name "solid(4)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF half-ring_3 Solid {
+  translation -12.5087 0.01 7.24345
+  rotation 0 1 0 1.57
+  scale 0.08 0.08 0.08
+  children [
+    CurvedRoadSegment {
+      width 3.25
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      totalAngle 3.14
+      subdivision 24
+      appearance PBRAppearance {
+        roughness 0.5
+        metalness 0.2
+      }
+    }
+  ]
+  name "solid(6)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF half-ring_4 Solid {
+  translation -47.5014 0.01 5.62
+  rotation 0 1 0 -1.57
+  scale 0.08 0.08 0.08
+  children [
+    CurvedRoadSegment {
+      width 3.25
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      totalAngle 3.14
+      subdivision 24
+      appearance PBRAppearance {
+        roughness 0.5
+        metalness 0.2
+      }
+    }
+  ]
+  name "solid(8)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF orange Solid {
+  translation 3.16 0.02 5.84
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.701961 0.286275
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1.5 2
+      }
+    }
+  ]
+  name "solid(15)"
+  recognitionColors [
+    1 0.701961 0.286275
+  ]
+}
+DEF R6 Solid {
+  translation 30 0.01 -4.83
+  children [
+    DEF end Solid {
+      translation -3 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0.0156863
+            roughness 0.5
+            metalness 0.2
+          }
+          geometry Plane {
+            size 1 2
+          }
+        }
+      ]
+      name "solid(14)"
+      recognitionColors [
+        1 0.0431373 0.137255
+      ]
+    }
+    DEF Start Solid {
+      translation -1 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.101961 1 0.054902
+            roughness 0.5
+            metalness 0.2
+          }
+          geometry Plane {
+            size 1 2
+          }
+        }
+      ]
+      name "solid(12)"
+      recognitionColors [
+        0.168627 0.901961 0.215686
+      ]
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 15 0.25
+      }
+    }
+  ]
+  name "R6"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF gate Solid {
+  translation 40 1.125 -8
+  rotation 1 0 0 0
+  children [
+    Solid {
+      translation 0 0 -0.101
+      children [
+        Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Box {
+            size 1.5 0.25 0.2
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    Solid {
+      translation 0.625 -0.625 0
+      children [
+        Solid {
+          translation 0 0 -0.101
+          children [
+            Shape {
+              appearance VarnishedPine {
+                colorOverride 1 1 1
+              }
+              geometry Box {
+                size 0.25 1 0.2
+              }
+            }
+          ]
+        }
+        DEF gate2 Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Rectangle {
+            size 0.25 1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE gate2
+    }
+    Solid {
+      translation -0.625 -0.625 0
+      children [
+        Solid {
+          translation 0 0 -0.101
+          children [
+            Shape {
+              appearance VarnishedPine {
+                colorOverride 1 1 1
+              }
+              geometry Box {
+                size 0.25 1 0.2
+              }
+            }
+          ]
+        }
+        DEF gate3 Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Rectangle {
+            size 0.25 1
+          }
+        }
+      ]
+      boundingObject USE gate3
+    }
+    DEF gate1 Shape {
+      appearance VarnishedPine {
+        colorOverride 1 1 1
+      }
+      geometry Rectangle {
+        size 1.5 0.255
+      }
+    }
+  ]
+  name "gate"
+  boundingObject USE gate1
+  recognitionColors [
+    0 1 1
+  ]
+}
+DEF R7 Solid {
+  translation 40 0.01 -10.84
+  rotation 0 1 0 1.57
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 3.5 0.25
+      }
+    }
+  ]
+  name "solid(18)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF R8 Solid {
+  translation 30 0.01 -12.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 20 0.25
+      }
+    }
+  ]
+  name "solid(19)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF R9 Solid {
+  translation 20 0.01 -10.84
+  rotation 0 1 0 1.57
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 3.5 0.25
+      }
+    }
+  ]
+  name "solid(20)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF R10 Solid {
+  translation 14.45 0.01 -9.1908
+  rotation 0 1 0 3.14
+  children [
+    DEF end Solid {
+      translation 1 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0.0156863
+            roughness 0.5
+            metalness 0.2
+          }
+          geometry Plane {
+            size 1 2
+          }
+        }
+      ]
+      name "solid(14)"
+      recognitionColors [
+        1 0.0431373 0.137255
+      ]
+    }
+    DEF Start Solid {
+      translation 3 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.101961 1 0.054902
+            roughness 0.5
+            metalness 0.2
+          }
+          geometry Plane {
+            size 1 2
+          }
+        }
+      ]
+      name "solid(12)"
+      recognitionColors [
+        0.168627 0.901961 0.215686
+      ]
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.968627 0.976471
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 11 0.25
+      }
+    }
+  ]
+  name "R6(1)"
+  recognitionColors [
+    1 1 1
+  ]
+}
+DEF Tree1 SimpleTree {
+  translation 17 0 -3
+}
+DEF ColorBox Solid {
+  translation 8.5 0.1 -9.2
+  children [
+    Solid {
+      translation 0.75 0.75 1.5
+      rotation 1 0 0 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.5 0 1
+            }
+          }
+          geometry Box {
+            size 1.5 0.1 1.5
+          }
+        }
+      ]
+      name "solid(1)"
+      recognitionColors [
+        0.5 0 1
+      ]
+    }
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.5 0 1
+        }
+      }
+      geometry Plane {
+        size 3 3
+      }
+    }
+    Solid {
+      translation 0.75 0.75 -1.5
+      rotation 1 0 0 1.57
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0.5 0 1
+            }
+          }
+          geometry Box {
+            size 1.5 0.1 1.5
+          }
+        }
+      ]
+      recognitionColors [
+        0.5 0 1
+      ]
+    }
+  ]
+  name "solid(21)"
+  recognitionColors [
+    0.5 0 1
+  ]
+}
+DEF Tree2 SimpleTree {
+  translation 13 0 -5
+  name "tree(1)"
+}
+DEF R11 Solid {
+  translation -20.21 0.01 -9.2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 55 0.25
+      }
+    }
+  ]
+  name "solid(22)"
+  recognitionColors [
+    1 0 0
+  ]
+}
+DEF R12 Solid {
+  translation 5.69027 0.01 -10.6321
+  rotation 0 1 0 2.3554
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 3.5 0.25
+      }
+    }
+  ]
+  name "solid(23)"
+  recognitionColors [
+    0.5 0 1
+  ]
+}
+DEF R13 Solid {
+  translation 5.69956 0.01 -7.85324
+  rotation 0 1 0 -2.3554
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 3.5 0.25
+      }
+    }
+  ]
+  name "solid(24)"
+  recognitionColors [
+    1 1 0
+  ]
+}
+DEF R14 Solid {
+  translation -5.49 0.01 -6.69
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 20 0.25
+      }
+    }
+  ]
+  name "solid(25)"
+  recognitionColors [
+    1 1 0
+  ]
+}
+DEF R15 Solid {
+  translation -5.49 0.01 -11.76
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 20 0.25
+      }
+    }
+  ]
+  name "solid(26)"
+  recognitionColors [
+    0.5 0 1
+  ]
+}
+DEF R16 Solid {
+  translation -17.8267 0.01 -9.42557
+  rotation 0 1 0 -2.3554
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 7 0.25
+      }
+    }
+  ]
+  name "solid(27)"
+  recognitionColors [
+    0.5 0 1
+  ]
+}
+DEF R17 Solid {
+  translation -17.8366 0.01 -9.01716
+  rotation 0 1 0 2.3554
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 7 0.25
+      }
+    }
+  ]
+  name "solid(28)"
+  recognitionColors [
+    1 1 0
+  ]
+}
+DEF R18 Solid {
+  translation -33.68 0.01 -6.96
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 27 0.25
+      }
+    }
+  ]
+  name "solid(29)"
+  recognitionColors [
+    0.5 0 1
+  ]
+}
+DEF R19 Solid {
+  translation -33.68 0.01 -11.44
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 27 0.25
+      }
+    }
+  ]
+  name "solid(30)"
+  recognitionColors [
+    1 1 0
+  ]
+}
+DEF Finish Solid {
+  translation -48.08 0.03 -9.22
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 3 10
+      }
+    }
+  ]
+  name "solid(31)"
+  recognitionColors [
+    1 0 0
+  ]
+}
+DEF BRIDGE1 StraightRoadSegment {
+  translation 20 0.3 -1.5
+  name "road(1)"
+  width 1
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  roadBorderHeight 0.01
+  startingRoadBorderWidth 0.01
+  endingRoadBorderWidth 0.01
+  bottom TRUE
+  length 3
+  roadBoundingObject TRUE
+}
+DEF BRIDGE2 StraightRoadSegment {
+  translation 20 0.3 1.5
+  rotation 1 0 0 0.26100030610042535
+  name "road(2)"
+  width 1
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  roadBorderHeight 0.01
+  startingRoadBorderWidth 0.01
+  endingRoadBorderWidth 0.01
+  bottom TRUE
+  length 1
+  roadBoundingObject TRUE
+}
+DEF BRIDGE3 StraightRoadSegment {
+  translation 20 -0.03 -2.4
+  rotation 1 0 0 -0.33089969389957474
+  name "road(3)"
+  width 1
+  lines [
+    RoadLine {
+      type "none"
+    }
+  ]
+  roadBorderHeight 0.01
+  startingRoadBorderWidth 0.01
+  endingRoadBorderWidth 0.01
+  bottom TRUE
+  length 1
+  roadBoundingObject TRUE
+}
