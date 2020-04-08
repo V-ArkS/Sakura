@@ -1,0 +1,1077 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.9975707639271398 0.03530665831776876 -0.06005006941090947 4.694998605326998
+  position -36.52137235413656 96.36499056659981 -7.45183225178026
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF floor Solid {
+  rotation 1 0 0 1.5708
+  children [
+    DEF plane Shape {
+      appearance BakelitePlastic {
+        color "braun"
+      }
+      geometry Rectangle {
+        size 100 30
+      }
+    }
+  ]
+  boundingObject USE plane
+  locked TRUE
+}
+DEF R_Red_4 Solid {
+  translation -12.98 0.01 -8.43001
+  rotation 0 1 0 3.14159
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 1 0 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(37)"
+  boundingObject USE plane
+}
+DEF R_Red_5 Solid {
+  translation -16.98 0.01 -8.39
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 1 0 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(38)"
+  boundingObject USE plane
+}
+DEF R_Red_6 Solid {
+  translation -16.96 0.01 -6.38999
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 1 0 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      startingRoadBorderWidth 0
+      endingRoadBorderWidth 0
+      length 30
+    }
+  ]
+  name "solid(39)"
+  boundingObject USE plane
+}
+DEF R_Green_6 Solid {
+  translation -16.97 0.01 -10.31
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 0 1 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      startingRoadBorderWidth 0
+      endingRoadBorderWidth 0
+      length 30
+    }
+  ]
+  name "solid(30)"
+  boundingObject USE plane
+}
+DEF R_Green_5 Solid {
+  translation -16.98 0.01 -8.31
+  rotation 0 1 0 1.5708
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 0 1 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(29)"
+  boundingObject USE plane
+}
+DEF R_Green_4 Solid {
+  translation -12.98 0.01 -8.31
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 0 1 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(28)"
+  boundingObject USE plane
+}
+DEF R_Red_3 Solid {
+  translation 7.02004 0.01 -10.43
+  rotation 0 -1 0 1.5708
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 1 0 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      startingRoadBorderWidth 0
+      endingRoadBorderWidth 0
+      length 20
+    }
+  ]
+  name "solid(27)"
+  boundingObject USE plane
+}
+DEF R_Green_3 Solid {
+  translation 7.02 0.01 -6.31
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 0 1 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      startingRoadBorderWidth 0
+      endingRoadBorderWidth 0
+      length 20
+    }
+  ]
+  name "solid(26)"
+  boundingObject USE plane
+}
+DEF R_Red_2 Solid {
+  translation 7.01999 0.01 -9.43
+  rotation 0 1 0 1.5708
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 1 0 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 1
+    }
+  ]
+  name "solid(25)"
+  boundingObject USE plane
+}
+DEF R_Blue_1 Solid {
+  translation 9 0 -8.38
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      translation 0 0.01 0
+      width 1
+      lines [
+        RoadLine {
+          color 0 0 1
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      startingRoadBorderWidth 0
+      endingRoadBorderWidth 0
+      length 55.55
+    }
+  ]
+  name "solid(23)"
+  boundingObject USE plane
+}
+DEF R_Red_1 Solid {
+  translation 9.01999 0.01 -9.43
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 1 0 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 1
+    }
+  ]
+  name "solid(21)"
+  boundingObject USE plane
+}
+DEF R_Green_1 Solid {
+  translation 9.02 0.01 -7.31
+  rotation 0 1 0 3.14159
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 0 1 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 1
+    }
+  ]
+  name "solid(22)"
+  boundingObject USE plane
+}
+DEF R_S5 Solid {
+  translation -45.55 0.01 7.04011
+  rotation 0 1 0 1.5708
+  children [
+    StraightRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
+      length 32
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE plane
+}
+Forest {
+  translation 3.86 0 0
+  shape [
+    6 -6
+    15 -6
+    14 -2
+  ]
+}
+DEF FL1 FloorLight {
+  translation 45 0 -6.5
+  bulbColor 1 0 0
+  supportColor 1 0 0
+  pointLightColor 1 0 0
+  pointLightIntensity 5
+}
+DEF FL2 FloorLight {
+  translation 45 0 -3.84
+  name "floor light(1)"
+  bulbColor 0 0 1
+  supportColor 0 0 1
+  pointLightColor 0 0 1
+  pointLightIntensity 5
+}
+DEF River Fluid {
+  translation 0 0.02 0
+  children [
+    DEF river Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 100 0.5 2
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river
+  locked TRUE
+}
+DEF F60 Fluid {
+  translation -10 0.02 13.5
+  children [
+    DEF river_60 Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 60 0.5 3
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river_60
+}
+DEF F45 Fluid {
+  translation -2.5 0.02 10.5
+  children [
+    DEF river_45 Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 45 0.5 3
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river_45
+}
+DEF F30 Fluid {
+  translation 5 0.02 7.5
+  children [
+    DEF river_30 Shape {
+      appearance PBRAppearance {
+        baseColor 0.666667 1 1
+        transparency 0.3
+      }
+      geometry Box {
+        size 30 0.5 3
+      }
+    }
+  ]
+  viscosity 0.01
+  streamVelocity 0.1 0 0
+  boundingObject USE river_30
+}
+DEF Start Solid {
+  translation -48.92 0.01 11.24
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.101961 1 0.054902
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+    Solid {
+    }
+  ]
+  name "solid(10)"
+  boundingObject USE plane
+  recognitionColors [
+    0.168627 0.901961 0.215686
+  ]
+}
+DEF end_1 Solid {
+  translation -8.74 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0.0156863
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(13)"
+  recognitionColors [
+    0 0 0
+  ]
+}
+DEF Start_2 Solid {
+  translation -7.01 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.101961 1 0.054902
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(11)"
+  recognitionColors [
+    0.168627 0.901961 0.215686
+  ]
+}
+DEF end_2 Solid {
+  translation 11.46 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0.0156863
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(14)"
+  recognitionColors [
+    1 0.0431373 0.137255
+  ]
+}
+DEF Start_3 Solid {
+  translation 13.12 0.02 4.82
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.101961 1 0.054902
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1 2
+      }
+    }
+  ]
+  name "solid(12)"
+  recognitionColors [
+    0.168627 0.901961 0.215686
+  ]
+}
+DEF orange Solid {
+  translation 3.16 0.02 5.84
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.701961 0.286275
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 1.5 2
+      }
+    }
+  ]
+  name "solid(15)"
+  recognitionColors [
+    1 0.701961 0.286275
+  ]
+}
+DEF Bridge Solid {
+  translation 20 0.29 7.96317e-06
+  rotation 1 0 0 1.57
+  children [
+    Solid {
+      translation 0 0 0.101
+      children [
+        Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Box {
+            size 1 3 0.2
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    Solid {
+      translation 0 -1.95943 0.126451
+      rotation 1 0 0 -0.261794
+      children [
+        Solid {
+          translation 0 0 0.101
+          children [
+            Shape {
+              appearance VarnishedPine {
+                colorOverride 1 1 1
+              }
+              geometry Box {
+                size 1 1 0.2
+              }
+            }
+          ]
+        }
+        DEF bridge Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Rectangle {
+            size 1 1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE bridge
+    }
+    Solid {
+      translation 0 1.96543 0.130788
+      rotation 1 0 0 0.261794
+      children [
+        Solid {
+          translation 0 0 0.101
+          children [
+            Shape {
+              appearance VarnishedPine {
+                colorOverride 1 1 1
+              }
+              geometry Box {
+                size 1 1 0.2
+              }
+            }
+          ]
+        }
+        DEF bridge3 Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Rectangle {
+            size 1 1
+          }
+        }
+      ]
+      boundingObject USE bridge3
+    }
+    DEF bridge1 Shape {
+      appearance VarnishedPine {
+        colorOverride 1 1 1
+      }
+      geometry Rectangle {
+        size 1 3
+      }
+    }
+  ]
+  name "solid(17)"
+  boundingObject USE bridge1
+  recognitionColors [
+    0 1 1
+  ]
+}
+DEF gate Solid {
+  translation 40 1.125 -8
+  rotation 1 0 0 0
+  children [
+    Solid {
+      translation 0 0 -0.101
+      children [
+        Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Box {
+            size 1.5 0.25 0.2
+          }
+        }
+      ]
+      name "solid(2)"
+    }
+    Solid {
+      translation 0.625 -0.625 0
+      children [
+        Solid {
+          translation 0 0 -0.101
+          children [
+            Shape {
+              appearance VarnishedPine {
+                colorOverride 1 1 1
+              }
+              geometry Box {
+                size 0.25 1 0.2
+              }
+            }
+          ]
+        }
+        DEF gate2 Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Rectangle {
+            size 0.25 1
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE gate2
+    }
+    Solid {
+      translation -0.625 -0.625 0
+      children [
+        Solid {
+          translation 0 0 -0.101
+          children [
+            Shape {
+              appearance VarnishedPine {
+                colorOverride 1 1 1
+              }
+              geometry Box {
+                size 0.25 1 0.2
+              }
+            }
+          ]
+        }
+        DEF gate3 Shape {
+          appearance VarnishedPine {
+            colorOverride 1 1 1
+          }
+          geometry Rectangle {
+            size 0.25 1
+          }
+        }
+      ]
+      boundingObject USE gate3
+    }
+    DEF gate1 Shape {
+      appearance VarnishedPine {
+        colorOverride 1 1 1
+      }
+      geometry Rectangle {
+        size 1.5 0.255
+      }
+    }
+  ]
+  name "gate"
+  boundingObject USE gate1
+  recognitionColors [
+    0 1 1
+  ]
+}
+DEF Tree1 SimpleTree {
+  translation 17 0 -3
+}
+DEF Tree2 SimpleTree {
+  translation 13 0 -5
+  name "tree(1)"
+}
+DEF Finish Solid {
+  translation -48.08 0.03 -9.22
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 3 10
+      }
+    }
+  ]
+  name "solid(31)"
+  boundingObject USE plane
+  recognitionColors [
+    1 0 0
+  ]
+}
+DEF R2 Solid {
+  translation 39.99 0.01 -10.36
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.3
+      endingRoadBorderWidth 0.3
+      length 4
+    }
+  ]
+  name "solid(16)"
+  boundingObject USE plane
+}
+DEF R12Ring Solid {
+  translation 37.99 0.010026 -6.36
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.3
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(19)"
+  boundingObject USE plane
+}
+DEF R23Ring Solid {
+  translation 37.99 0.01 -10.36
+  rotation 0 1 0 1.5708
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.3
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(32)"
+  boundingObject USE plane
+}
+DEF R3 Solid {
+  translation 37.99 0.01 -12.36
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.3
+      endingRoadBorderWidth 0.3
+      length 15
+    }
+  ]
+  name "solid(33)"
+  boundingObject USE plane
+}
+DEF R3Ring1 Solid {
+  translation 22.9956 0.01 -10.36
+  rotation 0 1 0 3.14159
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.3
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(34)"
+  boundingObject USE plane
+}
+DEF R1 Solid {
+  translation 37.99 0.01 -4.36
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.3
+      endingRoadBorderWidth 0.3
+      length 12
+    }
+  ]
+  name "solid(18)"
+  boundingObject USE plane
+}
+DEF R3Ring2 Solid {
+  translation 19 0.01 -10.36
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.3
+      ]
+      curvatureRadius 2
+    }
+  ]
+  name "solid(20)"
+  boundingObject USE plane
+}
+DEF R4 Solid {
+  translation 8.99997 0.01 -8.36001
+  rotation 0 1 0 1.5708
+  children [
+    StraightRoadSegment {
+      translation 0 0.01 0
+      width 1
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.3
+      endingRoadBorderWidth 0.3
+    }
+  ]
+  name "solid(35)"
+  boundingObject USE plane
+}
+DEF R_S1 Solid {
+  translation -47.55 0.01 11.0401
+  rotation 0 1 0 1.5708
+  children [
+    StraightRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
+      length 20
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE plane
+}
+DEF R_S2 Solid {
+  translation -27.55 0.01 10.04
+  rotation 0 1 0 1.5708
+  children [
+    CurvedRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.1
+      ]
+      curvatureRadius 1
+      totalAngle 3.1415
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE plane
+}
+DEF R_S3 Solid {
+  translation -27.55 0.01 9.04008
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
+      length 18
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE plane
+}
+DEF R_S4 Solid {
+  translation -45.55 0.01 8.04
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    CurvedRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.1
+      ]
+      curvatureRadius 1
+      totalAngle 3.14159
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE plane
+}
+DEF R_S6 Solid {
+  translation -13.55 0.01 6.04002
+  rotation 0 1 0 1.5708
+  children [
+    CurvedRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.1
+      ]
+      curvatureRadius 1
+      totalAngle 3.14159
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE plane
+}
+DEF R_S7 Solid {
+  translation -13.55 0.01 5.04
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    StraightRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
+      length 32
+    }
+  ]
+  name "solid(7)"
+  boundingObject USE plane
+}
+DEF R_S8 Solid {
+  translation -45.55 0.01 4.04001
+  rotation 0 1 0 -1.5707953071795862
+  children [
+    CurvedRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      roadBorderWidth [
+        0.1
+      ]
+      curvatureRadius 1
+      totalAngle 3.14159
+    }
+  ]
+  name "solid(9)"
+  boundingObject USE plane
+}
+DEF R_S9 Solid {
+  translation -45.55 0.01 3.04013
+  rotation 0 1 0 1.5708
+  children [
+    StraightRoadSegment {
+      width 0.5
+      lines [
+        RoadLine {
+          type "continuous"
+        }
+      ]
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
+      length 60
+    }
+  ]
+  name "solid(36)"
+  boundingObject USE plane
+}
+DEF TrafficLight Solid {
+  children [
+    CautionSign {
+      translation 10.02 0 -9.99
+      rotation 0 1 0 -1.5707953071795862
+    }
+  ]
+  name "solid(8)"
+  boundingObject USE plane
+}
+DEF R_Green_2 Solid {
+  translation 7.02 0.01 -7.31
+  children [
+    CurvedRoadSegment {
+      width 1
+      lines [
+        RoadLine {
+          color 0 1 0
+          type "continuous"
+          width 0.05
+        }
+      ]
+      roadBorderHeight 0
+      roadBorderWidth [
+        0
+      ]
+      curvatureRadius 1
+    }
+  ]
+  name "solid(24)"
+  boundingObject USE plane
+}
