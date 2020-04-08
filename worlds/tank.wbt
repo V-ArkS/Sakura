@@ -1,0 +1,347 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  info [
+    "Example uses of Track nodes, as caterpillar tracks on a robot, or as a conveyor belt."
+  ]
+  title "Track"
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "track"
+      coulombFriction [
+        500
+      ]
+      bounce 0
+      softCFM 1e-05
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.0701929443744957 0.9949448468094888 -0.07181714535736934 4.67556552165882
+  position -0.43556745376421496 0.006781454549285979 -0.007243170233428905
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF TANK Robot {
+  translation 0 0.047 0
+  children [
+    DEF TANK_BODY Shape {
+      appearance DEF DARK_GREEN PBRAppearance {
+        baseColor 0 0.2 0
+        roughness 1
+        metalness 0.3
+      }
+      geometry Box {
+        size 0.31 0.05 0.1
+      }
+    }
+    Transform {
+      translation -0.01 0.04 0
+      rotation 0 0 1 1.5707996938995747
+      children [
+        Shape {
+          appearance USE DARK_GREEN
+          geometry Capsule {
+            height 0.07
+            radius 0.06
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -0.155 0.005 0
+      rotation 0 0 1 -0.7854003061004253
+      children [
+        Shape {
+          appearance USE DARK_GREEN
+          geometry Box {
+            size 0.03 0.03 0.1
+          }
+        }
+      ]
+    }
+    Transform {
+      translation -0.09 0.06 0
+      rotation 0 0 1 1.3089996938995747
+      children [
+        Shape {
+          appearance USE DARK_GREEN
+          geometry Cylinder {
+            height 0.4
+            radius 0.005
+          }
+        }
+      ]
+    }
+    DEF LEFT_TRACK Track {
+      translation 0 -0.02 0.075
+      rotation 1 0 0 3.141592653589793
+      children [
+        DEF NON_LOAD_WHEEL1 TrackWheel {
+          position -0.16 -0.01
+          radius 0.02
+          children [
+            DEF NON_LOAD_WHEEL Transform {
+              rotation 1 0 0 1.5707996938995747
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColorMap ImageTexture {
+                      url [
+                        "resources/tank_wheel.jpg"
+                      ]
+                    }
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.05
+                    radius 0.02
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF WHEEL1 TrackWheel {
+          position -0.11 0
+          radius 0.025
+          children [
+            DEF LOAD_WHEEL Transform {
+              rotation 1 0 0 1.5707996938995747
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColorMap ImageTexture {
+                      url [
+                        "resources/tank_wheel.jpg"
+                      ]
+                    }
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    height 0.05
+                    radius 0.025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF WHEEL2 TrackWheel {
+          position -0.05 0
+          radius 0.025
+          children [
+            USE LOAD_WHEEL
+          ]
+        }
+        DEF WHEEL3 TrackWheel {
+          radius 0.025
+          children [
+            USE LOAD_WHEEL
+          ]
+        }
+        DEF WHEEL4 TrackWheel {
+          position 0.05 0
+          radius 0.025
+          children [
+            USE LOAD_WHEEL
+          ]
+        }
+        DEF WHEEL5 TrackWheel {
+          position 0.1 0
+          radius 0.025
+          children [
+            USE LOAD_WHEEL
+          ]
+        }
+        DEF NON_LOAD_WHEEL2 TrackWheel {
+          position 0.15 -0.01
+          radius 0.02
+          children [
+            USE NON_LOAD_WHEEL
+          ]
+        }
+      ]
+      name "left track"
+      contactMaterial "track"
+      boundingObject Group {
+        children [
+          Transform {
+            children [
+              Box {
+                size 0.22 0.05 0.05
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.01 0
+            rotation 1 0 0 -1.5707996938995747
+            children [
+              Cylinder {
+                height 0.05
+                radius 0.02
+              }
+            ]
+          }
+          Transform {
+            translation -0.137 0.012 0
+            rotation 0 0 -1 -0.29
+            children [
+              Box {
+                size 0.06 0.01 0.05
+              }
+            ]
+          }
+          Transform {
+            translation 0.15 -0.01 0
+            rotation 1 0 0 1.5708003061004252
+            children [
+              Cylinder {
+                height 0.05
+                radius 0.02
+              }
+            ]
+          }
+          Transform {
+            translation 0.1324 0.0123 0
+            rotation 0 0 1 -0.32
+            children [
+              Box {
+                size 0.05 0.01 0.05
+              }
+            ]
+          }
+        ]
+      }
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "left motor"
+        }
+      ]
+      animatedGeometry DEF ANIMATION_GROUP Group {
+        children [
+          Transform {
+            translation 0 -0.002 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.1 0.1 0.1
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.003 0.001 0.05
+                }
+              }
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.2 0.2 0.2
+              roughness 1
+              metalness 0.5
+            }
+            geometry Box {
+              size 0.01 0.003 0.05
+            }
+          }
+        ]
+      }
+      geometriesCount 70
+    }
+    Track {
+      translation 0 -0.02 -0.075
+      rotation 1 0 0 -3.141592653589793
+      children [
+        USE NON_LOAD_WHEEL1
+        USE WHEEL1
+        USE WHEEL2
+        USE WHEEL3
+        USE WHEEL4
+        USE WHEEL5
+        USE NON_LOAD_WHEEL2
+      ]
+      name "right track"
+      contactMaterial "track"
+      boundingObject Group {
+        children [
+          Transform {
+            children [
+              Box {
+                size 0.22 0.05 0.05
+              }
+            ]
+          }
+          Transform {
+            translation -0.16 -0.01 0
+            rotation 1 0 0 -1.5707996938995747
+            children [
+              Cylinder {
+                height 0.05
+                radius 0.02
+              }
+            ]
+          }
+          Transform {
+            translation -0.137 0.012 0
+            rotation 0 0 -1 -0.29
+            children [
+              Box {
+                size 0.06 0.01 0.05
+              }
+            ]
+          }
+          Transform {
+            translation 0.15 -0.01 0
+            rotation 1 0 0 1.5708003061004252
+            children [
+              Cylinder {
+                height 0.05
+                radius 0.02
+              }
+            ]
+          }
+          Transform {
+            translation 0.1324 0.0123 0
+            rotation 0 0 1 -0.32
+            children [
+              Box {
+                size 0.05 0.01 0.05
+              }
+            ]
+          }
+        ]
+      }
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "right motor"
+        }
+      ]
+      animatedGeometry USE ANIMATION_GROUP
+      geometriesCount 70
+    }
+  ]
+  boundingObject USE TANK_BODY
+  physics Physics {
+    density -1
+    mass 40
+  }
+  controller "c_tank_go_forward"
+}
+StraightRoadSegment {
+  translation -20 0 0
+  rotation 0 1 0 1.5707996938995747
+  width 5
+  numberOfLanes 4
+  roadBorderHeight 0.02
+  length 40
+  roadBoundingObject TRUE
+}
