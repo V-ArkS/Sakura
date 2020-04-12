@@ -315,8 +315,8 @@ Robot {
     Camera {
       translation -0.176 0.004 0
       rotation 0 1 0 1.5707996938995747
-      width 640
-      height 640
+      width 320
+      height 320
     }
   ]
   boundingObject USE TANK_BODY
