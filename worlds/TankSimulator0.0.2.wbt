@@ -1,0 +1,489 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material1 "track"
+      coulombFriction [
+        500
+      ]
+      bounce 0
+      softCFM 1e-05
+    }
+    ContactProperties {
+      material1 "Heavy"
+      bounce 0
+      softCFM 1e-05
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.0002486974210571456 0.9999680067572698 -0.007995224292388955 3.1236548710505905
+  position 49.004048913448926 0.16800771740106005 -12.690234604228493
+  follow "59tank"
+  followType "Mounted Shot"
+}
+TexturedBackground {
+  texture "noon_park_empty"
+}
+TexturedBackgroundLight {
+}
+tank {
+  translation 49 0.045 -11
+  rotation 0 1 0 1.5707996938995747
+  controller "PySimulator"
+}
+DEF FLOOR Solid {
+  translation 0 -0.5 0
+  children [
+    DEF FLOOR_GEO Group {
+      children [
+        Transform {
+          translation 42.5 0 -12.5
+          children [
+            Shape {
+              appearance DEF FLOOR_COLOR PBRAppearance {
+                baseColor 0.2 0.2 0.2
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 15 1 5
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 36.25 0 -9.5
+          children [
+            Shape {
+              appearance USE FLOOR_COLOR
+              geometry Box {
+                size 27.5 1 1
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 15 0 -3.5
+          children [
+            Shape {
+              appearance USE FLOOR_COLOR
+              geometry Box {
+                size 70 1 5
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 8
+          children [
+            Shape {
+              appearance USE FLOOR_COLOR
+              geometry Box {
+                size 100 1 14
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject USE FLOOR_GEO
+}
+Fluid {
+  translation 0 -0.5 0
+  children [
+    DEF WATER_GEO Group {
+      children [
+        Transform {
+          translation 28.75 0 -13.5
+          children [
+            Shape {
+              appearance DEF WATER_COLOR PBRAppearance {
+                baseColor 0 0.4 0.7
+                transparency 0.8
+                metalness 0
+              }
+              geometry Box {
+                size 12.5 1 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 28.75 0 -11
+          children [
+            Shape {
+              appearance USE WATER_COLOR
+              geometry Box {
+                size 12.5 1 2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 16.25 0 -12
+          children [
+            Shape {
+              appearance USE WATER_COLOR
+              geometry Box {
+                size 12.5 1 6
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -5 0 -10.5
+          children [
+            Shape {
+              appearance USE WATER_COLOR
+              geometry Box {
+                size 30 1 9
+              }
+            }
+          ]
+        }
+        Transform {
+          children [
+            Shape {
+              appearance USE WATER_COLOR
+              geometry Box {
+                size 100 1 2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 30 0 -7.5
+          children [
+            Shape {
+              appearance USE WATER_COLOR
+              geometry Box {
+                size 40 1 3
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -35 0 -8
+          children [
+            Shape {
+              appearance USE WATER_COLOR
+              geometry Box {
+                size 30 1 14
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  boundingObject USE WATER_GEO
+}
+DEF TASK3_BRIDGE Group {
+  children [
+    StraightRoadSegment {
+      translation 48 0.28 0.5
+      rotation 1 0 0 0.28
+      name "bridge 1"
+      width 1
+      numberOfLanes 1
+      roadBorderHeight 0.05
+      startingRoadBorderWidth 0.01
+      endingRoadBorderWidth 0.6
+      rightBorder FALSE
+      leftBorder FALSE
+      length 1
+      roadBoundingObject TRUE
+    }
+    StraightRoadSegment {
+      translation 48 0.28 -0.5
+      rotation 1 0 0 0
+      name "bridge2"
+      width 1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 1
+      roadBoundingObject TRUE
+    }
+    StraightRoadSegment {
+      translation 48 0 -1.46
+      rotation 1 0 0 -0.284
+      name "bridge3"
+      width 1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 1
+      roadBoundingObject TRUE
+    }
+  ]
+}
+DEF TASK3_TREES Forest {
+  translation 0 0.0001 0
+  shape [
+    -35 10
+    -20 3
+    -5 10
+  ]
+  type "cherry tree"
+}
+DEF TASK4_ARCH Solid {
+  translation 49 0 8
+  children [
+    DEF ARCH_GEO Group {
+      children [
+        Transform {
+          translation 0 1.125 0
+          children [
+            Shape {
+              appearance DEF ARCH_COLOR PBRAppearance {
+                baseColor 0.9 0.9 0
+                roughness 0.5
+                metalness 0
+              }
+              geometry Box {
+                size 1.5 0.25 0.2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0.625 0.5 0
+          children [
+            DEF ARCH_COLUMN Shape {
+              appearance USE ARCH_COLOR
+              geometry Box {
+                size 0.25 1 0.2
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.625 0.5 0
+          children [
+            USE ARCH_COLUMN
+          ]
+        }
+      ]
+    }
+  ]
+  name "Arch"
+  contactMaterial "Heavy"
+  boundingObject USE ARCH_GEO
+  physics Physics {
+    density 5000
+  }
+}
+DEF WATER_ROAD Group {
+  children [
+    StraightRoadSegment {
+      translation 20.57 0.77 -10
+      rotation 0 0 1 -0.31
+      name "bridge3(2)"
+      width 5
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 1
+      roadBoundingObject TRUE
+    }
+    CurvedRoadSegment {
+      translation 18.2 1.53 -14.5
+      rotation 0 1 0 -1.5707996938995747
+      name "road(2)"
+      width 1
+      rightBorder FALSE
+      leftBorder FALSE
+      curvatureRadius 5
+      roadBoundingObject TRUE
+    }
+    CurvedRoadSegment {
+      translation 8.2 1.53 -14.5
+      rotation 0 1 0 3.1416
+      name "road(3)"
+      width 1
+      rightBorder FALSE
+      leftBorder FALSE
+      curvatureRadius 5
+      totalAngle 3.1416
+      roadBoundingObject TRUE
+    }
+    CurvedRoadSegment {
+      translation -1.8 1.53 -14.5
+      name "road(4)"
+      width 0.55
+      rightBorder FALSE
+      leftBorder FALSE
+      curvatureRadius 5
+      roadBoundingObject TRUE
+    }
+    StraightRoadSegment {
+      translation -21.8 1.53 -9.52
+      rotation 0 1 0 1.57
+      width 0.3
+      rightBorder FALSE
+      leftBorder FALSE
+      length 20
+      roadBoundingObject TRUE
+    }
+    CurvedRoadSegment {
+      translation -21.8 1.53 -6.52
+      rotation 0 1 0 -1.5707996938995747
+      name "road(1)"
+      width 0.3
+      rightBorder FALSE
+      leftBorder FALSE
+      curvatureRadius 3
+      totalAngle 3.1416
+      roadBoundingObject TRUE
+    }
+    StraightRoadSegment {
+      translation -17 0.13 -3.75
+      rotation 0 0 1 -0.284
+      name "bridge3(1)"
+      width 10
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 0.3
+      roadBoundingObject TRUE
+    }
+  ]
+}
+DEF BARRIER1 Group {
+  children [
+    WorkBarrier {
+      translation -7.21437 -7.10543e-15 -4.47349
+      rotation 0 1 0 1.5707996938995747
+      enablePhysics TRUE
+    }
+    WorkBarrier {
+      translation -7.30122 -1.10134e-13 -3.23721
+      rotation 0 1 0 1.5707996938995747
+      name "work barrier(1)"
+      enablePhysics TRUE
+    }
+    WorkBarrier {
+      translation -7.3149 -9.59233e-14 -2.04118
+      rotation 0 1 0 1.5707996938995747
+      name "work barrier(2)"
+      enablePhysics TRUE
+    }
+  ]
+}
+DEF BARRIER2 Group {
+  children [
+    WorkBarrier {
+      translation -0.908974 7.10543e-14 -5.3388
+      rotation 0 1 0 1.5707996938995747
+      name "work barrier2-1"
+      enablePhysics TRUE
+    }
+    WorkBarrier {
+      translation -1.00014 -1.08358e-13 -4.11428
+      rotation 0 1 0 1.5707996938995747
+      name "work barrier2-2"
+      enablePhysics TRUE
+    }
+    WorkBarrier {
+      translation -1.098 -9.23706e-14 -2.83041
+      rotation 0 1 0 1.5707996938995747
+      name "work barrier2-3"
+      enablePhysics TRUE
+    }
+  ]
+}
+DEF BARRIER3 Group {
+  children [
+    WoodenBox {
+      translation 2.35873 0.3 -4.45945
+    }
+    WoodenBox {
+      translation 15.296 0.3 -3.08027
+      name "wooden box(1)"
+    }
+    WoodenBox {
+      translation 11.6698 0.3 -2.56313
+      rotation 0 1 0 0.6544996938995746
+      name "wooden box(2)"
+    }
+    WoodenBox {
+      translation 17.9464 0.3 -1.59729
+      rotation 0 1 0 0.6544996938995746
+      name "wooden box(8)"
+    }
+    WoodenBox {
+      translation 7.11331 0.3 -5.05377
+      rotation 0 1 0 0.6544996938995746
+      name "wooden box(9)"
+    }
+    WoodenBox {
+      translation 14.7195 0.3 -3.86765
+      rotation 0 1 0 0.6544996938995746
+      name "wooden box(10)"
+    }
+    WoodenBox {
+      translation 9.74958 0.3 -3.9505
+      rotation 0 1 0 0.6544996938995746
+      name "wooden box(11)"
+    }
+    WoodenBox {
+      translation 23.0547 0.3 -2.38058
+      rotation 0 1 0 0.6544996938995746
+      name "wooden box(12)"
+    }
+    WoodenBox {
+      translation 4.25689 0.3 -2.66757
+      name "wooden box(3)"
+    }
+    WoodenBox {
+      translation 11.7769 0.3 -5.46506
+      name "wooden box(4)"
+    }
+    WoodenBox {
+      translation 8.785 0.3 -2.30328
+      name "wooden box(5)"
+    }
+    WoodenBox {
+      translation 32.8673 0.3 -3.45964
+      name "wooden box(6)"
+    }
+  ]
+}
+Group {
+  children [
+    Ramp30deg {
+      translation 32.8396 -5.32907e-15 -4.90751
+    }
+    Ramp30deg {
+      translation 32.9176 0 -2.09643
+      name "ramp 30 degrees(1)"
+    }
+    WoodenBox {
+      translation 18.5925 0.3 -5.16169
+      name "wooden box(7)"
+    }
+  ]
+}
+Solid {
+  translation 49 0.3 8
+  children [
+    DEF HAHA Shape {
+      appearance PBRAppearance {
+        transparency 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.5 0.6 0.2
+      }
+    }
+  ]
+  name "fORfUN"
+  contactMaterial "Heavy"
+  boundingObject USE HAHA
+  physics Physics {
+    density 5000
+  }
+}
