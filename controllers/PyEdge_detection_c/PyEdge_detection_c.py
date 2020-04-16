@@ -20,7 +20,7 @@ for i in range(2):
 camera = Camera('camera')
 camera.enable(int(robot.getBasicTimeStep()))
 # video = cv2.VideoWriter('edge.mp4', cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), int(camera.getSamplingPeriod()), (camera.getWidth(), camera.getHeight()), 0) #创建视频流对象
-print(camera.getWidth(), camera.getHeight(), camera.getSamplingPeriod())
+# print(camera.getWidth(), camera.getHeight(), camera.getSamplingPeriod())
 while robot.step(TIME_STEP) != -1:
     leftSpeed = 0.0
     rightSpeed = 0.0
@@ -67,10 +67,10 @@ while robot.step(TIME_STEP) != -1:
             if blur_im1[axis_v][axis_h] != 0:
                 axis = axis + axis_h
                 num = num + 1
-    print(num, axis)
+    # print(num, axis)
     if num:
         position = axis / num + 1
-    print(position)
+    # print(position)
     if abs(position-WIDTH/2) > 7:
         leftSpeed = ((position+1)/WIDTH) * 1
         rightSpeed = (1-(position+1)/WIDTH) * 1
