@@ -71,7 +71,7 @@ while robot.step(TIME_STEP) != -1:
     if num:
         position = axis / num + 1
     print(position)
-    if abs(position-WIDTH/2) > 5:
+    if abs(position-WIDTH/2) > 7:
         leftSpeed = ((position+1)/WIDTH) * 1
         rightSpeed = (1-(position+1)/WIDTH) * 1
     else:
