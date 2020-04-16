@@ -35,9 +35,9 @@ while robot.step(TIME_STEP) != -1:
     frame = np.zeros((HEIGHT, WIDTH))
     for x in range(0, HEIGHT):
         for y in range(0, WIDTH):
-            red = int(camera.imageGetRed(cameraData, WIDTH, x, y))
-            blue = int(camera.imageGetBlue(cameraData, WIDTH, x, y))
-            green = int(camera.imageGetGreen(cameraData, WIDTH, x, y))
+            # red = int(camera.imageGetRed(cameraData, WIDTH, x, y))
+            # blue = int(camera.imageGetBlue(cameraData, WIDTH, x, y))
+            # green = int(camera.imageGetGreen(cameraData, WIDTH, x, y))
             gray = int(camera.imageGetGray(cameraData, WIDTH, x, y))
             frame[y][x] = gray
 
