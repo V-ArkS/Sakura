@@ -1,0 +1,248 @@
+PROTO Sakura [
+  field SFVec3f    translation  0 0.025 0
+  field SFRotation rotation     0 1 0 0
+  field SFFloat    bodyMass     40
+  field SFString   controller   ""
+  field SFString   name         "Sakura"
+]
+{
+Robot {
+  translation IS translation
+  rotation IS rotation
+  name IS name
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.07 0
+      }
+      device [
+        RotationalMotor {
+          name "tower rotational motor"
+        }
+        PositionSensor {
+          name "tower angle sensor"
+        }
+      ]
+      endPoint Camera {
+        translation 0 0.15 -6.0292e-14
+        rotation -0.12942694302206584 -0.9831055672050736 -0.12942994302074512 1.58784
+        width 160
+        height 160
+      }
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        axis 1 0 0
+      }
+      device [
+        LinearMotor {
+          name "trigger motor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.07 0.075 0
+        children [
+          DEF TRIGGER_BOUNDARY Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              size 0.01 0.02 0.05
+            }
+          }
+        ]
+        boundingObject USE TRIGGER_BOUNDARY
+        physics Physics {
+        }
+      }
+    }
+    Compass {
+      yAxis FALSE
+    }
+    DistanceSensor {
+      translation 0.075 0 0
+    }
+    Track {
+      translation 0.08 0 -0.11
+      children [
+        DEF WHEEL1 TrackWheel {
+          radius 0.025
+          children [
+            DEF WHEEL1_TRANSFORM Transform {
+              rotation 1 0 0 1.5707996938995747
+              children [
+                DEF WHEEL1_BOUNDARY Shape {
+                  appearance DEF WHEEL_COLOUR PBRAppearance {
+                    baseColorMap ImageTexture {
+                      url [
+                        "tank_wheel.jpg"
+                      ]
+                    }
+                    roughness 1
+                    metalness 0.5
+                  }
+                  geometry Cylinder {
+                    height 0.045
+                    radius 0.025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF WHEEL2 TrackWheel {
+          position -0.15 0
+          radius 0.025
+          children [
+            USE WHEEL1_TRANSFORM
+          ]
+        }
+        DEF WHEEL3 TrackWheel {
+          position -0.085 0.049
+          radius 0.02
+          children [
+            Transform {
+              rotation 1 0 0 1.5707996938995747
+              children [
+                DEF WHEEL3_BOUNDARY Shape {
+                  appearance USE WHEEL_COLOUR
+                  geometry Cylinder {
+                    height 0.045
+                    radius 0.02
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      name "left track"
+      contactMaterial "track"
+      boundingObject DEF TRACK_BOUNDARY Group {
+        children [
+          Transform {
+            rotation 1 0 0 1.5707996938995747
+            children [
+              USE WHEEL1_BOUNDARY
+            ]
+          }
+          Transform {
+            translation -0.15 0 0
+            rotation 1 0 0 1.5707996938995747
+            children [
+              USE WHEEL1_BOUNDARY
+            ]
+          }
+          Transform {
+            translation -0.085 0.049 0
+            rotation 1 0 0 1.5707996938995747
+            children [
+              USE WHEEL3_BOUNDARY
+            ]
+          }
+          Transform {
+            translation -0.075 -0.0125 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.15 0.025 0.045
+                }
+              }
+            ]
+          }
+        ]
+      }
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "left motor"
+        }
+      ]
+      animatedGeometry DEF ANIMATION_GROUP Group {
+        children [
+          Shape {
+            appearance DEF TRACK_ANI_COLOUR PBRAppearance {
+              baseColor 0.2 0.2 0.2
+              roughness 0.3
+            }
+            geometry Box {
+              size 0.01 0.003 0.045
+            }
+          }
+          Transform {
+            translation 0 0.0023 0
+            children [
+              Shape {
+                appearance USE TRACK_ANI_COLOUR
+                geometry Box {
+                  size 0.003 0.0016 0.045
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.007 0 0.02
+            children [
+              DEF TRACK_SIDE_ANI_SHAPE Shape {
+                appearance USE TRACK_ANI_COLOUR
+                geometry Box {
+                  size 0.004 0.003 0.003
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.007 0 -0.02
+            children [
+              USE TRACK_SIDE_ANI_SHAPE
+            ]
+          }
+        ]
+      }
+      geometriesCount 35
+    }
+    Track {
+      translation 0.08 0 0.11
+      children [
+        USE WHEEL1
+        USE WHEEL2
+        USE WHEEL3
+      ]
+      name "right track"
+      contactMaterial "track"
+      boundingObject USE TRACK_BOUNDARY
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "right motor"
+        }
+      ]
+      animatedGeometry USE ANIMATION_GROUP
+      geometriesCount 35
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0.03 0
+        children [
+          Shape {
+            geometry Box {
+              size 0.15 0.07 0.17
+            }
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+      density -1
+      mass IS bodyMass
+  }
+  controller IS controller
+}
+}
