@@ -12,8 +12,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.578913895699251 0.8093992452007022 0.09864868592561447 5.396888368769422
-  position -88.92098064885445 39.842552474282314 70.7295600333544
+  orientation 0.9976118607533631 0.05738135875846021 -0.03844417967970418 4.709138830088982
+  position -44.44990030225063 24.45157036327858 -8.079879815985667
 }
 TexturedBackground {
 }
@@ -825,7 +825,7 @@ DEF Tree3 SimpleTree {
   name "tree(2)"
 }
 DEF R11 Solid {
-  translation -20.21 0.01 -9.2
+  translation -20.21 0.001 -9.2
   children [
     Shape {
       appearance PBRAppearance {
@@ -844,7 +844,7 @@ DEF R11 Solid {
   ]
 }
 DEF R12 Solid {
-  translation 5.69027 0.01 -10.6321
+  translation 5.66907 0.001 -10.6534
   rotation 0 1 0 2.3554
   children [
     Shape {
@@ -854,7 +854,7 @@ DEF R12 Solid {
         metalness 0.2
       }
       geometry Plane {
-        size 3.5 0.2
+        size 3.3 0.2
       }
     }
   ]
@@ -863,8 +863,28 @@ DEF R12 Solid {
     0.5 0 1
   ]
 }
+DEF R12_s Solid {
+  translation 7.04183 0.001 -9.40836
+  rotation 0 1 0 3.1408
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 0.5 0.2
+      }
+    }
+  ]
+  name "solid(21)"
+  recognitionColors [
+    0.5 0 1
+  ]
+}
 DEF R13 Solid {
-  translation 5.69956 0.01 -7.85324
+  translation 5.65715 0.001 -7.81077
   rotation 0 1 0 -2.3554
   children [
     Shape {
@@ -874,7 +894,7 @@ DEF R13 Solid {
         metalness 0.2
       }
       geometry Plane {
-        size 3.5 0.2
+        size 3.3 0.2
       }
     }
   ]
@@ -883,8 +903,28 @@ DEF R13 Solid {
     1 1 0
   ]
 }
+DEF R13_s Solid {
+  translation 7.04051 0.001 -9.00664
+  rotation 0 1 0 -3.1407953071795864
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 1 0
+        roughness 0.5
+        metalness 0.2
+      }
+      geometry Plane {
+        size 0.5 0.2
+      }
+    }
+  ]
+  name "solid(36)"
+  recognitionColors [
+    1 1 0
+  ]
+}
 DEF R14 Solid {
-  translation -5.49 0.01 -6.69
+  translation -5.49 0.001 -6.69
   children [
     Shape {
       appearance PBRAppearance {
@@ -903,7 +943,7 @@ DEF R14 Solid {
   ]
 }
 DEF R15 Solid {
-  translation -5.49 0.01 -11.76
+  translation -5.49 0.001 -11.76
   children [
     Shape {
       appearance PBRAppearance {
@@ -922,7 +962,7 @@ DEF R15 Solid {
   ]
 }
 DEF R16 Solid {
-  translation -17.8267 0.01 -9.42557
+  translation -17.8267 0.001 -9.42557
   rotation 0 1 0 -2.3554
   children [
     Shape {
@@ -942,7 +982,7 @@ DEF R16 Solid {
   ]
 }
 DEF R17 Solid {
-  translation -17.8366 0.01 -9.01716
+  translation -17.8366 0.001 -9.01716
   rotation 0 1 0 2.3554
   children [
     Shape {
@@ -962,7 +1002,7 @@ DEF R17 Solid {
   ]
 }
 DEF R18 Solid {
-  translation -33.68 0.01 -6.96
+  translation -33.68 0.001 -6.96
   children [
     Shape {
       appearance PBRAppearance {
@@ -981,7 +1021,7 @@ DEF R18 Solid {
   ]
 }
 DEF R19 Solid {
-  translation -33.68 0.01 -11.44
+  translation -33.68 0.001 -11.44
   children [
     Shape {
       appearance PBRAppearance {
@@ -1000,7 +1040,7 @@ DEF R19 Solid {
   ]
 }
 DEF Finish Solid {
-  translation -48.08 0.03 -9.22
+  translation -48.08 0.003 -9.22
   children [
     Shape {
       appearance PBRAppearance {
@@ -1069,7 +1109,7 @@ DEF BRIDGE3 StraightRoadSegment {
   roadBoundingObject TRUE
 }
 Robot {
-  translation 7.17378 0.02 -10.2151
+  translation 7.29378 0.02 -10.1151
   rotation 0 1 0 4.692820414042842e-06
   scale 1.8 1.8 1.8
   children [
