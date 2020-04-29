@@ -12,8 +12,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.03354702274367721 0.9978427358565068 0.05643112406674592 1.5177050709531699
-  position 1.0277893445272381 0.24177116317937122 0.03728538689523829
+  orientation 0.015221663113735675 0.9996429536005828 0.021960562122931026 0.9669528181304701
+  position 0.883604008132961 0.17952122649651248 0.5458149585694313
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -46,13 +46,13 @@ Robot {
       children [
         Transform {
           translation 0 0.14 0
-          rotation 0 1 0 -0.7853996938995746
+          rotation 0 1 0 2.3561996938995744
           children [
             Shape {
               appearance PBRAppearance {
                 baseColorMap ImageTexture {
                   url [
-                    "tmp.jpg"
+                    "resources/body.png"
                   ]
                 }
                 roughness 1
@@ -92,7 +92,7 @@ Robot {
               appearance PBRAppearance {
                 baseColorMap ImageTexture {
                   url [
-                    "tmp.png"
+                    "resources/body2.png"
                   ]
                 }
                 roughness 1
@@ -225,7 +225,7 @@ Robot {
                 appearance PBRAppearance {
                   baseColorMap ImageTexture {
                     url [
-                      "sakura_icon.png"
+                      "resources/headdress.png"
                     ]
                   }
                   roughness 1
@@ -268,7 +268,7 @@ Robot {
                   appearance DEF WHEEL_COLOUR PBRAppearance {
                     baseColorMap ImageTexture {
                       url [
-                        "sakura_icon.jpg"
+                        "resources/wheel.png"
                       ]
                     }
                     roughness 1
