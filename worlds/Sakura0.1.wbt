@@ -12,8 +12,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.12067500538718429 0.986045970062411 0.11467732120381165 1.2841126031355103
-  position 0.9130443689596748 0.3402735627012813 0.2429999373102807
+  orientation 0.06274253763110049 0.9927779993639204 0.10225076014671872 4.1825861996845255
+  position -0.7488740047694796 0.3468987544193901 -0.41572451392304977
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -121,7 +121,7 @@ Robot {
           ]
         }
         Transform {
-          translation -0.066 0.1 0
+          translation -0.086 0.0653588 -0.015
           rotation 0.6546522633584754 0.3779641520502844 0.6546552633596822 -2.4188553071795864
           children [
             Shape {
@@ -136,7 +136,7 @@ Robot {
               }
               geometry Cylinder {
                 height 0.001
-                radius 0.08
+                radius 0.1
                 side FALSE
               }
               castShadows FALSE
@@ -227,7 +227,7 @@ Robot {
             children [
               Shape {
                 appearance PBRAppearance {
-                  baseColor 1 0.5 0.6
+                  baseColor 0.926864 0.74345 0.818845
                   baseColorMap ImageTexture {
                     url [
                       "resources/headdress.png"
@@ -246,7 +246,7 @@ Robot {
             ]
           }
           DEF EYE1 Transform {
-            translation 0.0595 0.22 0.03
+            translation 0.0595 0.2225 0.03
             rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
             children [
               Shape {
@@ -270,7 +270,7 @@ Robot {
             ]
           }
           DEF EYE2 Transform {
-            translation 0.0595 0.22 -0.03
+            translation 0.0595 0.2225 -0.03
             rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
             children [
               Shape {
@@ -290,6 +290,29 @@ Robot {
                   top FALSE
                 }
                 castShadows FALSE
+              }
+            ]
+          }
+          Transform {
+            translation 0.0595 0.2 0
+            rotation 0.5773512691860505 -0.5773472691841857 -0.5773522691865168 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/mouth.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.0055
+                  side FALSE
+                  top FALSE
+                }
               }
             ]
           }
