@@ -12,8 +12,9 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.06274253763110049 0.9927779993639204 0.10225076014671872 4.1825861996845255
-  position -0.7488740047694796 0.3468987544193901 -0.41572451392304977
+  orientation -0.6998040582175042 -0.707220643412603 0.10056461422078697 5.88225303968329
+  position 0.7074675649206573 0.012989889931261281 2.170710897657418
+  followType "None"
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -126,6 +127,7 @@ Robot {
           children [
             Shape {
               appearance PBRAppearance {
+                baseColor 0.833082 0.517906 0.638117
                 baseColorMap ImageTexture {
                   url [
                     "resources/bow_knot.png"
@@ -135,7 +137,7 @@ Robot {
                 metalness 0
               }
               geometry Cylinder {
-                height 0.001
+                height 0.02
                 radius 0.1
                 side FALSE
               }
@@ -227,7 +229,7 @@ Robot {
             children [
               Shape {
                 appearance PBRAppearance {
-                  baseColor 0.926864 0.74345 0.818845
+                  baseColor 0.984222 0.748318 0.804562
                   baseColorMap ImageTexture {
                     url [
                       "resources/headdress.png"
@@ -530,3 +532,4 @@ Solid {
     density 100
   }
 }
+
