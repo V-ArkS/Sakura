@@ -12,8 +12,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.015221663113735675 0.9996429536005828 0.021960562122931026 0.9669528181304701
-  position 0.883604008132961 0.17952122649651248 0.5458149585694313
+  orientation -0.12067500538718429 0.986045970062411 0.11467732120381165 1.2841126031355103
+  position 0.9130443689596748 0.3402735627012813 0.2429999373102807
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -82,6 +82,7 @@ Robot {
                 height 0.18
                 subdivision 4
               }
+              castShadows FALSE
             }
           ]
         }
@@ -104,6 +105,45 @@ Robot {
             }
           ]
         }
+        Transform {
+          translation 0 0.006 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.12 0.12 0.12
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.175 0.001 0.175
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.066 0.1 0
+          rotation 0.6546522633584754 0.3779641520502844 0.6546552633596822 -2.4188553071795864
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/bow_knot.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.001
+                radius 0.08
+                side FALSE
+              }
+              castShadows FALSE
+              isPickable FALSE
+            }
+          ]
+        }
       ]
     }
     HingeJoint {
@@ -121,7 +161,7 @@ Robot {
       ]
       endPoint Solid {
         children [
-          Transform {
+          DEF FACE Transform {
             translation 0 0.22 0
             children [
               Shape {
@@ -136,43 +176,7 @@ Robot {
               }
             ]
           }
-          Transform {
-            translation 0.056 0.22 0.03
-            rotation 0 0 1 1.5707996938995747
-            children [
-              Shape {
-                appearance PBRAppearance {
-                  baseColor 1 1 0.3
-                  roughness 0.3
-                  metalness 0.5
-                }
-                geometry Cylinder {
-                  height 0.01
-                  radius 0.015
-                }
-                castShadows FALSE
-              }
-            ]
-          }
-          Transform {
-            translation 0.056 0.22 -0.03
-            rotation 0 0 1 1.5707996938995747
-            children [
-              Shape {
-                appearance PBRAppearance {
-                  baseColor 1 1 0.3
-                  roughness 0.3
-                  metalness 0.5
-                }
-                geometry Cylinder {
-                  height 0.01
-                  radius 0.015
-                }
-                castShadows FALSE
-              }
-            ]
-          }
-          Transform {
+          DEF HEAD Transform {
             translation 0 0.23 0
             rotation 1 0 0 3.141592653589793
             children [
@@ -193,7 +197,7 @@ Robot {
               }
             ]
           }
-          Transform {
+          DEF BUN1 Transform {
             translation 0 0.29 0.07
             children [
               Shape {
@@ -205,7 +209,7 @@ Robot {
               }
             ]
           }
-          Transform {
+          DEF BUN2 Transform {
             translation 0 0.29 -0.07
             children [
               Shape {
@@ -217,12 +221,13 @@ Robot {
               }
             ]
           }
-          Transform {
+          DEF HEADDRESS Transform {
             translation 0.05 0.28 0.05
             rotation 0.5524836396128295 -0.3189757919308829 -0.7700754976768365 1.28666
             children [
               Shape {
                 appearance PBRAppearance {
+                  baseColor 1 0.5 0.6
                   baseColorMap ImageTexture {
                     url [
                       "resources/headdress.png"
@@ -235,6 +240,54 @@ Robot {
                   height 0.01
                   radius 0.03
                   side FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF EYE1 Transform {
+            translation 0.0595 0.22 0.03
+            rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/left_eye.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.017
+                  side FALSE
+                  top FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF EYE2 Transform {
+            translation 0.0595 0.22 -0.03
+            rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/right_eye.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.017
+                  side FALSE
+                  top FALSE
                 }
                 castShadows FALSE
               }
@@ -433,7 +486,7 @@ Robot {
   }
   physics Physics {
   }
-  controller ""
+  controller "<extern>"
 }
 Solid {
   translation 0 0.005 0.205
