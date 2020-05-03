@@ -3,27 +3,17 @@ WorldInfo {
   contactProperties [
     ContactProperties {
       material1 "track"
+      material2 "floor"
       coulombFriction [
         500
       ]
-      forceDependentSlip [
-        1
-      ]
-      softCFM 1e-05
-    }
-    ContactProperties {
-      material1 "food"
-      coulombFriction [
-        0.05
-      ]
-      bounce 0.8
       softCFM 1e-05
     }
   ]
 }
 Viewpoint {
-  orientation 0.007817818936163222 -0.9981451521696008 -0.060374969212462395 3.8324471051117226
-  position 0.4742818138209376 0.17828431168666267 -0.5827091959437183
+  orientation 0.03252086640659272 -0.9988254496386272 -0.035918162569354234 4.779578877927403
+  position 0.8864932683029834 0.22984136947691436 -0.00918177412756644
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -46,11 +36,116 @@ DEF Floor Solid {
     }
   ]
   name "floor"
+  contactMaterial "floor"
   boundingObject USE FLOOR_BOUNDARY
 }
 Robot {
   translation 0 0.03 0
   children [
+    Group {
+      children [
+        Transform {
+          translation 0 0.14 0
+          rotation 0 1 0 2.3561996938995744
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/body.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cone {
+                bottomRadius 0.1237
+                height 0.18
+                bottom FALSE
+                subdivision 4
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.1 0
+          rotation -0.9238797538373538 2.3432593756515104e-17 0.38268289803626016 3.14159
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.7 0.9
+                roughness 1
+                metalness 0
+              }
+              geometry Cone {
+                bottomRadius 0.04
+                height 0.18
+                subdivision 4
+              }
+              castShadows FALSE
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.028 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/body2.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.175 0.044 0.175
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.006 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.12 0.12 0.12
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.175 0.001 0.175
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.086 0.0653588 -0.015
+          rotation 0.6546522633584754 0.3779641520502844 0.6546552633596822 -2.4188553071795864
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/bow_knot.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.001
+                radius 0.1
+                side FALSE
+              }
+              castShadows FALSE
+              isPickable FALSE
+            }
+          ]
+        }
+      ]
+    }
     HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 1 0
@@ -64,38 +159,171 @@ Robot {
           name "tower angle sensor"
         }
       ]
-      endPoint Camera {
-        translation 0 0.15 -6.0292e-14
-        rotation -0.12942694302206584 -0.9831055672050736 -0.12942994302074512 1.58784
-        width 160
-        height 160
-      }
-    }
-    SliderJoint {
-      jointParameters JointParameters {
-        axis 1 0 0
-      }
-      device [
-        LinearMotor {
-          name "trigger motor"
-        }
-      ]
       endPoint Solid {
-        translation -0.07 0.075 0
         children [
-          DEF TRIGGER_BOUNDARY Shape {
-            appearance PBRAppearance {
-              roughness 1
-              metalness 0
-            }
-            geometry Box {
-              size 0.01 0.02 0.05
-            }
+          DEF FACE Transform {
+            translation 0 0.22 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.9 1
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.12 0.06 0.12
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF HEAD Transform {
+            translation 0 0.23 0
+            rotation 1 0 0 3.141592653589793
+            children [
+              Shape {
+                appearance DEF HAIR_COLOUR PBRAppearance {
+                  baseColor 0.12 0.02 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Capsule {
+                  height 0.01
+                  radius 0.084
+                  side FALSE
+                  top FALSE
+                  subdivision 16
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF BUN1 Transform {
+            translation 0 0.29 0.07
+            children [
+              Shape {
+                appearance USE HAIR_COLOUR
+                geometry Sphere {
+                  radius 0.025
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF BUN2 Transform {
+            translation 0 0.29 -0.07
+            children [
+              Shape {
+                appearance USE HAIR_COLOUR
+                geometry Sphere {
+                  radius 0.025
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF HEADDRESS Transform {
+            translation 0.05 0.28 0.05
+            rotation 0.5524836396128295 -0.3189757919308829 -0.7700754976768365 1.28666
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.926864 0.74345 0.818845
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/headdress.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.03
+                  side FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF EYE1 Transform {
+            translation 0.0595 0.2225 0.03
+            rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/left_eye.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.017
+                  side FALSE
+                  top FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF EYE2 Transform {
+            translation 0.0595 0.2225 -0.03
+            rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/right_eye.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.017
+                  side FALSE
+                  top FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          Transform {
+            translation 0.0595 0.2 0
+            rotation 0.5773512691860505 -0.5773472691841857 -0.5773522691865168 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/mouth.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.0055
+                  side FALSE
+                  top FALSE
+                }
+              }
+            ]
+          }
+          Camera {
+            translation 0.06 0.2 0
+            rotation -0.12942694302206584 -0.9831055672050736 -0.12942994302074512 1.58784
+            width 160
+            height 160
           }
         ]
-        boundingObject USE TRIGGER_BOUNDARY
-        physics Physics {
-        }
       }
     }
     Compass {
@@ -117,7 +345,7 @@ Robot {
                   appearance DEF WHEEL_COLOUR PBRAppearance {
                     baseColorMap ImageTexture {
                       url [
-                        "tank_wheel.jpg"
+                        "resources/wheel.png"
                       ]
                     }
                     roughness 1
@@ -205,8 +433,9 @@ Robot {
         children [
           Shape {
             appearance DEF TRACK_ANI_COLOUR PBRAppearance {
-              baseColor 0.2 0.2 0.2
-              roughness 0.3
+              baseColor 0.7 0.4 0.3
+              roughness 0.7
+              metalness 0
             }
             geometry Box {
               size 0.01 0.003 0.045
@@ -281,26 +510,5 @@ Robot {
   }
   physics Physics {
   }
-  controller "<extern>"
-}
-Solid {
-  translation -0.05 0.1 0
-  children [
-    DEF FOOD Shape {
-      appearance PBRAppearance {
-        baseColor 1 0 0
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
-        size 0.01 0.01 0.01
-      }
-    }
-  ]
-  name "food"
-  contactMaterial "food"
-  boundingObject USE FOOD
-  physics Physics {
-    density 500
-  }
+  controller ""
 }
