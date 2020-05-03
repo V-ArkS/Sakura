@@ -951,7 +951,7 @@ DEF BRIDGE3 StraightRoadSegment {
   roadBoundingObject TRUE
 }
 ColorBox {
-  translation 7.6 0.025 -9.2
+  translation 7.6 0.0001 -9.2
   rotation 0 1 0 3.141592653589793
   floorColor 0.31 0.31 0.31
 }
