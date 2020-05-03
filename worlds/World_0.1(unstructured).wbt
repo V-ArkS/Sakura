@@ -12,8 +12,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.99596333948805 -0.06971766000132093 0.05653737064766485 1.187161138881287
-  position 15.264734746076888 56.66851386314599 24.34401613923639
+  orientation -0.2882921653402914 -0.9546031112172195 -0.07497017712271266 1.156860364288012
+  position -85.69699629329236 24.91130977571051 30.441662107078884
 }
 TexturedBackground {
 }
@@ -950,26 +950,8 @@ DEF BRIDGE3 StraightRoadSegment {
   length 1
   roadBoundingObject TRUE
 }
-Robot {
-  translation 7.29378 0.02 -10.1151
-  rotation 0 1 0 4.692820414042842e-06
-  scale 1.8 1.8 1.8
-  children [
-    LED {
-      children [
-        Shape {
-          appearance PBRAppearance {
-          }
-          geometry ElevationGrid {
-            xDimension 2
-            zDimension 2
-          }
-        }
-      ]
-      color [
-        0 0 0
-      ]
-    }
-  ]
-  name "robot(1)"
+ColorBox {
+  translation 7.6 0.025 -9.2
+  rotation 0 1 0 3.141592653589793
+  floorColor 0.31 0.31 0.31
 }

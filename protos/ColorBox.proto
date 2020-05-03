@@ -1,0 +1,93 @@
+PROTO ColorBox [
+  field SFVec3f    translation  0 0.025 0
+  field SFRotation rotation     0 1 0 0
+  field SFColor    floorColor   0.12 0.12 0.12
+]
+{
+Robot {
+  translation IS translation
+  rotation IS rotation
+  name "ColorBox"
+  children [
+    SliderJoint {
+      jointParameters JointParameters {
+      }
+      device [
+        DEF motor LinearMotor {
+          name "motor1"
+        }
+      ]
+      endPoint Solid {
+        children [
+          StraightRoadSegment {
+            translation 0 0 -0.35
+            name "yellow"
+            width 0.5
+            rightBorder FALSE
+            leftBorder FALSE
+            length 0.7
+            appearance PBRAppearance {
+              baseColor 1 1 0
+              roughness 1
+              metalness 0
+            }
+          }
+          StraightRoadSegment {
+            translation 0 0 0.35
+            name "red"
+            width 0.5
+            rightBorder FALSE
+            leftBorder FALSE
+            length 0.7
+            appearance PBRAppearance {
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+          }
+          StraightRoadSegment {
+            translation 0 0 1.05
+            name "violet"
+            width 0.5
+            rightBorder FALSE
+            leftBorder FALSE
+            length 0.7
+            appearance PBRAppearance {
+              baseColor 0.5 0 1
+              roughness 1
+              metalness 0
+            }
+          }
+        ]
+      }
+    }
+    StraightRoadSegment {
+      translation 0 0.001 -1.75
+      name "floor1"
+      width 0.55
+      rightBorder FALSE
+      leftBorder FALSE
+      length 1.4
+      appearance PBRAppearance {
+        baseColor IS floorColor
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation 0 0.001 0.35
+      name "floor2"
+      width 0.55
+      rightBorder FALSE
+      leftBorder FALSE
+      length 1.4
+      appearance PBRAppearance {
+        baseColor IS floorColor
+        roughness 1
+        metalness 0
+      }
+    }
+  ]
+  controller "PyColourRobot"
+}
+}

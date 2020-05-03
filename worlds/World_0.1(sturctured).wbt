@@ -1,12 +1,12 @@
 #VRML_SIM R2020a utf8
 WorldInfo {
+  northDirection -1 0 0
   contactProperties [
     ContactProperties {
       material1 "track"
       coulombFriction [
         500
       ]
-      bounce 0
       softCFM 1e-05
     }
     ContactProperties {
@@ -14,22 +14,25 @@ WorldInfo {
       bounce 0
       softCFM 1e-05
     }
+    ContactProperties {
+      material1 "food"
+      coulombFriction [
+        0.2
+      ]
+      softCFM 1e-09
+    }
   ]
 }
 Viewpoint {
-  orientation -0.07768209738649509 0.9940482517004988 0.07637777842289528 1.5681870581855513
-  position 49.04474549624523 0.27613569833142576 -11.39188360736752
-  follow "59tank"
+  orientation -0.07040647461983413 0.9928509351378305 0.09638438113896997 1.893275592619423
+  position 84.90834766290344 11.986967191880774 -16.24976612702752
   followType "Mounted Shot"
 }
 TexturedBackground {
   texture "noon_park_empty"
 }
 TexturedBackgroundLight {
-}
-tank {
-  translation 48 0.045 -11.4
-  controller "PySimulator"
+  texture "noon_park_empty"
 }
 DEF FLOOR Solid {
   translation 0 -0.5 0
@@ -41,7 +44,7 @@ DEF FLOOR Solid {
           children [
             Shape {
               appearance DEF FLOOR_COLOR PBRAppearance {
-                baseColor 0.2 0.2 0.2
+                baseColor 0.12 0.12 0.12
                 roughness 1
                 metalness 0
               }
@@ -171,6 +174,20 @@ Fluid {
 DEF TASK1_LINES Group {
   children [
     StraightRoadSegment {
+      translation 49 0.0001 -12.9
+      name "Straight road 1(1)"
+      width 1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 3
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
       translation 25.5 0.0001 -11.4
       rotation 0 1 0 1.5708003061004252
       name "Straight road 1"
@@ -178,7 +195,7 @@ DEF TASK1_LINES Group {
       numberOfLanes 1
       rightBorder FALSE
       leftBorder FALSE
-      length 22
+      length 22.8
       appearance DEF ROAD_COLOR PBRAppearance {
         roughness 1
         metalness 0
@@ -187,7 +204,7 @@ DEF TASK1_LINES Group {
     StraightRoadSegment {
       translation 25.5 0.0001 -9.6
       rotation 0 1 0 1.5708003061004252
-      name "straight road 2"
+      name "Straight road 2"
       width 0.1
       numberOfLanes 1
       rightBorder FALSE
@@ -281,18 +298,22 @@ DEF TASK1_LINES Group {
 DEF TASK2_ORANGE Solid {
   translation 0 0.06 -5.94
   children [
-    Shape {
+    DEF ORANGE_BOUNDARY Shape {
       appearance PBRAppearance {
         baseColor 1 0.3 0
         roughness 1
         metalness 0
       }
       geometry Box {
-        size 0.12 0.12 0.12
+        size 0.36 0.12 0.12
       }
     }
   ]
   name "Orange box"
+  boundingObject USE ORANGE_BOUNDARY
+  physics Physics {
+    density 500
+  }
 }
 DEF TASK3_BRIDGE Group {
   children [
@@ -302,11 +323,9 @@ DEF TASK3_BRIDGE Group {
       name "bridge 1"
       width 1
       numberOfLanes 1
-      roadBorderHeight 0.05
-      startingRoadBorderWidth 0.01
-      endingRoadBorderWidth 0.6
-      rightBorder FALSE
-      leftBorder FALSE
+      roadBorderHeight 0.1
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
       length 1
       roadBoundingObject TRUE
     }
@@ -316,8 +335,9 @@ DEF TASK3_BRIDGE Group {
       name "bridge2"
       width 1
       numberOfLanes 1
-      rightBorder FALSE
-      leftBorder FALSE
+      roadBorderHeight 0.1
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
       length 1
       roadBoundingObject TRUE
     }
@@ -327,8 +347,9 @@ DEF TASK3_BRIDGE Group {
       name "bridge3"
       width 1
       numberOfLanes 1
-      rightBorder FALSE
-      leftBorder FALSE
+      roadBorderHeight 0.1
+      startingRoadBorderWidth 0.1
+      endingRoadBorderWidth 0.1
       length 1
       roadBoundingObject TRUE
     }
@@ -339,9 +360,29 @@ DEF TASK3_TREES Forest {
   shape [
     -35 10
     -20 3
-    -5 10
+    -10 10
   ]
-  type "cherry tree"
+  density 0.6
+}
+DEF TASK3_OBSTACLE Solid {
+  translation -20 0.1 3.2
+  children [
+    DEF INVISIBLE_OBST_BOUNDARY Shape {
+      appearance PBRAppearance {
+        transparency 1
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.6 0.2 0.1
+      }
+    }
+  ]
+  name "obstacle"
+  boundingObject USE INVISIBLE_OBST_BOUNDARY
+  physics Physics {
+    density 500
+  }
 }
 DEF TASK4_ARCH Solid {
   translation -40 0 8
@@ -389,4 +430,226 @@ DEF TASK4_ARCH Solid {
   physics Physics {
     density 5000
   }
+}
+DEF TASK5_WHITE_ROAD Group {
+  children [
+    StraightRoadSegment {
+      translation -40 0.0001 9
+      name "Task 5 road 1"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 5
+      appearance DEF ROAD_COLOR PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation -40.05 0.0001 14.05
+      rotation 0 1 0 1.5708003061004252
+      name "Task 5 road 2"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 20
+      appearance DEF ROAD_COLOR PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation -20 0.0001 11.1
+      name "Task 5 road 3"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 3
+      appearance DEF ROAD_COLOR PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation -20.05 0.0001 11.05
+      rotation 0 1 0 1.5708003061004252
+      name "Task 5 road 4"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      appearance DEF ROAD_COLOR PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+    }
+  ]
+}
+DEF TASK5_COLOUR_ROAD Group {
+  children [
+    DEF RED StraightRoadSegment {
+      translation -9 0.0001 11.05
+      rotation 0 1 0 1.5708003061004252
+      name "Red road"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 53.64
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+    }
+    DEF VIOLET StraightRoadSegment {
+      translation -9 0.0001 11.1
+      rotation 0 1 0 0.3926996938995747
+      name "Violet road 1"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 3
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation -7.9 0.0001 13.84
+      rotation 0 1 0 1.5708003061004252
+      name "Violet road 2"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 30
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation 22.065 0.0001 13.855
+      rotation 0 1 0 2.3561996938995744
+      name "Violet road 3"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 7.93
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation 27.64 0.0001 8.26
+      rotation 0 1 0 1.5708003061004252
+      name "Violet road 4"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 17
+      startLine [
+        ""
+      ]
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 1
+        metalness 0
+      }
+    }
+    DEF YELLOW StraightRoadSegment {
+      translation -9 0.0001 11
+      rotation 0 1 0 2.7488903061004253
+      name "Yellow road 1"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 3
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation -7.9 0.0001 8.26
+      rotation 0 1 0 1.5708003061004252
+      name "Yellow road 2"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 30
+      startLine [
+        ""
+      ]
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation 22.065 0.0001 8.245
+      rotation 0 1 0 0.7853996938995746
+      name "Yellow road 3"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 7.93
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+    }
+    StraightRoadSegment {
+      translation 27.64 0.0001 13.84
+      rotation 0 1 0 1.5708003061004252
+      name "Yellow road 4"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 17
+      startLine [
+        ""
+      ]
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+    }
+    DEF FINISH StraightRoadSegment {
+      translation 45 0.0001 11.05
+      rotation 0 1 0 1.5708003061004252
+      name "Red road(1)"
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 2
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+    }
+  ]
+}
+ColorBox {
+  translation -9.5 0.025 11.05
 }

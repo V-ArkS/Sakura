@@ -1,0 +1,514 @@
+#VRML_SIM R2020a utf8
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      material1 "track"
+      material2 "floor"
+      coulombFriction [
+        500
+      ]
+      softCFM 1e-05
+    }
+  ]
+}
+Viewpoint {
+  orientation 0.03252086640659272 -0.9988254496386272 -0.035918162569354234 4.779578877927403
+  position 0.8864932683029834 0.22984136947691436 -0.00918177412756644
+}
+TexturedBackground {
+  texture "noon_park_empty"
+}
+TexturedBackgroundLight {
+  texture "noon_park_empty"
+}
+DEF Floor Solid {
+  translation 0 -0.5 0
+  children [
+    DEF FLOOR_BOUNDARY Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.2
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 10 1 10
+      }
+    }
+  ]
+  name "floor"
+  contactMaterial "floor"
+  boundingObject USE FLOOR_BOUNDARY
+}
+Robot {
+  translation 0 0.03 0
+  children [
+    Group {
+      children [
+        Transform {
+          translation 0 0.14 0
+          rotation 0 1 0 2.3561996938995744
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/body.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cone {
+                bottomRadius 0.1237
+                height 0.18
+                bottom FALSE
+                subdivision 4
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.1 0
+          rotation -0.9238797538373538 2.3432593756515104e-17 0.38268289803626016 3.14159
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.7 0.9
+                roughness 1
+                metalness 0
+              }
+              geometry Cone {
+                bottomRadius 0.04
+                height 0.18
+                subdivision 4
+              }
+              castShadows FALSE
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.028 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/body2.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.175 0.044 0.175
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.006 0
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 0.12 0.12 0.12
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.175 0.001 0.175
+              }
+            }
+          ]
+        }
+        Transform {
+          translation -0.086 0.0653588 -0.015
+          rotation 0.6546522633584754 0.3779641520502844 0.6546552633596822 -2.4188553071795864
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/bow_knot.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.001
+                radius 0.1
+                side FALSE
+              }
+              castShadows FALSE
+              isPickable FALSE
+            }
+          ]
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.07 0
+      }
+      device [
+        RotationalMotor {
+          name "tower rotational motor"
+        }
+        PositionSensor {
+          name "tower angle sensor"
+        }
+      ]
+      endPoint Solid {
+        children [
+          DEF FACE Transform {
+            translation 0 0.22 0
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0.9 1
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.12 0.06 0.12
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF HEAD Transform {
+            translation 0 0.23 0
+            rotation 1 0 0 3.141592653589793
+            children [
+              Shape {
+                appearance DEF HAIR_COLOUR PBRAppearance {
+                  baseColor 0.12 0.02 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Capsule {
+                  height 0.01
+                  radius 0.084
+                  side FALSE
+                  top FALSE
+                  subdivision 16
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF BUN1 Transform {
+            translation 0 0.29 0.07
+            children [
+              Shape {
+                appearance USE HAIR_COLOUR
+                geometry Sphere {
+                  radius 0.025
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF BUN2 Transform {
+            translation 0 0.29 -0.07
+            children [
+              Shape {
+                appearance USE HAIR_COLOUR
+                geometry Sphere {
+                  radius 0.025
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF HEADDRESS Transform {
+            translation 0.05 0.28 0.05
+            rotation 0.5524836396128295 -0.3189757919308829 -0.7700754976768365 1.28666
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.926864 0.74345 0.818845
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/headdress.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.03
+                  side FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF EYE1 Transform {
+            translation 0.0595 0.2225 0.03
+            rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/left_eye.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.017
+                  side FALSE
+                  top FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          DEF EYE2 Transform {
+            translation 0.0595 0.2225 -0.03
+            rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/right_eye.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.017
+                  side FALSE
+                  top FALSE
+                }
+                castShadows FALSE
+              }
+            ]
+          }
+          Transform {
+            translation 0.0595 0.2 0
+            rotation 0.5773512691860505 -0.5773472691841857 -0.5773522691865168 -2.094395307179586
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColorMap ImageTexture {
+                    url [
+                      "resources/mouth.png"
+                    ]
+                  }
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.002
+                  radius 0.0055
+                  side FALSE
+                  top FALSE
+                }
+              }
+            ]
+          }
+          Camera {
+            translation 0.06 0.2 0
+            rotation -0.12942694302206584 -0.9831055672050736 -0.12942994302074512 1.58784
+            width 160
+            height 160
+          }
+        ]
+      }
+    }
+    Compass {
+      yAxis FALSE
+    }
+    DistanceSensor {
+      translation 0.075 0 0
+    }
+    Track {
+      translation 0.08 0 -0.11
+      children [
+        DEF WHEEL1 TrackWheel {
+          radius 0.025
+          children [
+            DEF WHEEL1_TRANSFORM Transform {
+              rotation 1 0 0 1.5707996938995747
+              children [
+                DEF WHEEL1_BOUNDARY Shape {
+                  appearance DEF WHEEL_COLOUR PBRAppearance {
+                    baseColorMap ImageTexture {
+                      url [
+                        "resources/wheel.png"
+                      ]
+                    }
+                    roughness 1
+                    metalness 0.5
+                  }
+                  geometry Cylinder {
+                    height 0.045
+                    radius 0.025
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF WHEEL2 TrackWheel {
+          position -0.15 0
+          radius 0.025
+          children [
+            USE WHEEL1_TRANSFORM
+          ]
+        }
+        DEF WHEEL3 TrackWheel {
+          position -0.085 0.049
+          radius 0.02
+          children [
+            Transform {
+              rotation 1 0 0 1.5707996938995747
+              children [
+                DEF WHEEL3_BOUNDARY Shape {
+                  appearance USE WHEEL_COLOUR
+                  geometry Cylinder {
+                    height 0.045
+                    radius 0.02
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+      name "left track"
+      contactMaterial "track"
+      boundingObject DEF TRACK_BOUNDARY Group {
+        children [
+          Transform {
+            rotation 1 0 0 1.5707996938995747
+            children [
+              USE WHEEL1_BOUNDARY
+            ]
+          }
+          Transform {
+            translation -0.15 0 0
+            rotation 1 0 0 1.5707996938995747
+            children [
+              USE WHEEL1_BOUNDARY
+            ]
+          }
+          Transform {
+            translation -0.085 0.049 0
+            rotation 1 0 0 1.5707996938995747
+            children [
+              USE WHEEL3_BOUNDARY
+            ]
+          }
+          Transform {
+            translation -0.075 -0.0125 0
+            children [
+              Shape {
+                geometry Box {
+                  size 0.15 0.025 0.045
+                }
+              }
+            ]
+          }
+        ]
+      }
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "left motor"
+        }
+      ]
+      animatedGeometry DEF ANIMATION_GROUP Group {
+        children [
+          Shape {
+            appearance DEF TRACK_ANI_COLOUR PBRAppearance {
+              baseColor 0.7 0.4 0.3
+              roughness 0.7
+              metalness 0
+            }
+            geometry Box {
+              size 0.01 0.003 0.045
+            }
+          }
+          Transform {
+            translation 0 0.0023 0
+            children [
+              Shape {
+                appearance USE TRACK_ANI_COLOUR
+                geometry Box {
+                  size 0.003 0.0016 0.045
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.007 0 0.02
+            children [
+              DEF TRACK_SIDE_ANI_SHAPE Shape {
+                appearance USE TRACK_ANI_COLOUR
+                geometry Box {
+                  size 0.004 0.003 0.003
+                }
+              }
+            ]
+          }
+          Transform {
+            translation 0.007 0 -0.02
+            children [
+              USE TRACK_SIDE_ANI_SHAPE
+            ]
+          }
+        ]
+      }
+      geometriesCount 35
+    }
+    Track {
+      translation 0.08 0 0.11
+      children [
+        USE WHEEL1
+        USE WHEEL2
+        USE WHEEL3
+      ]
+      name "right track"
+      contactMaterial "track"
+      boundingObject USE TRACK_BOUNDARY
+      physics Physics {
+      }
+      device [
+        LinearMotor {
+          name "right motor"
+        }
+      ]
+      animatedGeometry USE ANIMATION_GROUP
+      geometriesCount 35
+    }
+  ]
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0.03 0
+        children [
+          Shape {
+            geometry Box {
+              size 0.15 0.07 0.17
+            }
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+  }
+  controller ""
+}
