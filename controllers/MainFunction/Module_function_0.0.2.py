@@ -8,6 +8,9 @@ robot = Robot()
 
 motors = []
 motorNames = ['left motor', 'right motor']
+for p in range(2):
+    motors.append(robot.getMotor(motorNames[p]))
+
 camera = Camera('camera')
 camera.enable(int(robot.getBasicTimeStep()))
 
@@ -31,7 +34,7 @@ position = WIDTH / 2
 class Sakura:
     @staticmethod
     # in this section variables which are possibly changed will be initialized
-    def sakura_initiate():
+    def sakura_initialize():
         global leftSpeed
         global rightSpeed
         global leftSum
@@ -50,11 +53,10 @@ class Sakura:
 
 
     @staticmethod
-    def motor_initiate():
+    def motor_initialize():
         global motors
         global motorNames
         for i in range(2):
-            motors.append(robot.getMotor(motorNames[i]))
             motors[i].setPosition(float('inf'))
             motors[i].setVelocity(0.0)
             motors[i].setAcceleration(25)
@@ -154,6 +156,7 @@ class Sakura:
     def steering(type_select=0, rectify_pixel=0, base_speed=3.0, straight_speed=2.0):
         global leftSpeed
         global rightSpeed
+        global position
 
         if type_select == 0:
             if abs(position - WIDTH / 2) > rectify_pixel:
@@ -177,7 +180,7 @@ class Sakura:
 
 
 Sakura = Sakura()
-Sakura.motor_initiate()
+Sakura.motor_initialize()
 
 while robot.step(TIME_STEP) != -1:
     pass

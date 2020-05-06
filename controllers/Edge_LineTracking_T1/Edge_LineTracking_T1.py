@@ -69,8 +69,8 @@ while robot.step(TIME_STEP) != -1:
         leftSpeed = (position/WIDTH) * 3
         rightSpeed = (1-position/WIDTH) * 3
     else:
-        leftSpeed = 2.0
-        rightSpeed = 2.0
+        leftSpeed = 0.5
+        rightSpeed = 0.5
 
     motors[0].setVelocity(leftSpeed)
     motors[1].setVelocity(rightSpeed)
