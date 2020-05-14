@@ -14,7 +14,7 @@ Robot {
     Group {
       children [
         Transform {
-          translation 0 0.14 0
+          translation 0 0.15 0
           rotation 0 1 0 2.3561996938995744
           children [
             Shape {
@@ -28,8 +28,8 @@ Robot {
                 metalness 0
               }
               geometry Cone {
-                bottomRadius 0.1237
-                height 0.18
+                bottomRadius 0.113
+                height 0.2
                 bottom FALSE
                 subdivision 4
               }
@@ -38,16 +38,16 @@ Robot {
         }
         Transform {
           translation 0 0.1 0
-          rotation -0.9238797538373538 2.3432593756515104e-17 0.38268289803626016 3.14159
+          rotation -0.9238797538373538 0 0.38268289803626016 3.14159
           children [
             Shape {
               appearance PBRAppearance {
-                baseColor 1 0.7 0.9
+                baseColor 1 0.8 1
                 roughness 1
                 metalness 0
               }
               geometry Cone {
-                bottomRadius 0.04
+                bottomRadius 0.042
                 height 0.18
                 subdivision 4
               }
@@ -56,7 +56,7 @@ Robot {
           ]
         }
         Transform {
-          translation 0 0.028 0
+          translation 0 0.022 0
           children [
             Shape {
               appearance PBRAppearance {
@@ -69,13 +69,13 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.175 0.044 0.175
+                size 0.16 0.056 0.16
               }
             }
           ]
         }
         Transform {
-          translation 0 0.006 0
+          translation 0 -0.006 0
           children [
             Shape {
               appearance PBRAppearance {
@@ -84,17 +84,18 @@ Robot {
                 metalness 0
               }
               geometry Box {
-                size 0.175 0.001 0.175
+                size 0.16 0.001 0.16
               }
             }
           ]
         }
         Transform {
-          translation -0.086 0.0653588 -0.015
-          rotation 0.6546522633584754 0.3779641520502844 0.6546552633596822 -2.4188553071795864
+          translation -0.071 0.074 -0.015
+          rotation -0.5101530688844431 0.7202160972486256 -0.4701410634817417 -1.9485096938995747
           children [
             Shape {
               appearance PBRAppearance {
+                baseColor 0.9 0.6 0.8
                 baseColorMap ImageTexture {
                   url [
                     "resources/bow_knot.png"
@@ -104,12 +105,56 @@ Robot {
                 metalness 0
               }
               geometry Cylinder {
-                height 0.001
+                bottom FALSE
+                height 0.0001
                 radius 0.1
-                side FALSE
               }
               castShadows FALSE
               isPickable FALSE
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.142 0.055
+          rotation -0.6105312296861656 0.7505312823551752 -0.2528920951397943 1.00859
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/body2.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cone {
+                bottomRadius 0.03
+                height 0.08
+                subdivision 4
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0.142 -0.055
+          rotation 0.6105312149967141 -0.7505312642973065 -0.25289218419500936 1.00859
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "resources/body2.png"
+                  ]
+                }
+                roughness 1
+                metalness 0
+              }
+              geometry Cone {
+                bottomRadius 0.03
+                height 0.08
+                subdivision 4
+              }
             }
           ]
         }
@@ -131,7 +176,7 @@ Robot {
       endPoint Solid {
         children [
           DEF FACE Transform {
-            translation 0 0.22 0
+            translation 0.003 0.22 0
             children [
               Shape {
                 appearance PBRAppearance {
@@ -140,7 +185,7 @@ Robot {
                   metalness 0
                 }
                 geometry Box {
-                  size 0.12 0.06 0.12
+                  size 0.114 0.06 0.12
                 }
                 castShadows FALSE
               }
@@ -193,7 +238,7 @@ Robot {
           }
           DEF HEADDRESS Transform {
             translation 0.05 0.28 0.05
-            rotation 0.5524836396128295 -0.3189757919308829 -0.7700754976768365 1.28666
+            rotation 0.5827266864890479 -0.44714075943520615 -0.6785976349098205 1.09606
             children [
               Shape {
                 appearance PBRAppearance {
@@ -207,7 +252,7 @@ Robot {
                   metalness 0
                 }
                 geometry Cylinder {
-                  height 0.01
+                  height 0.001
                   radius 0.03
                   side FALSE
                 }
@@ -302,7 +347,7 @@ Robot {
       translation 0.075 0 0
     }
     Track {
-      translation 0.08 0 -0.11
+      translation 0.08 0 -0.1
       children [
         DEF WHEEL1 TrackWheel {
           radius 0.025
@@ -321,7 +366,7 @@ Robot {
                     metalness 0.5
                   }
                   geometry Cylinder {
-                    height 0.045
+                    height 0.04
                     radius 0.025
                   }
                 }
@@ -346,7 +391,7 @@ Robot {
                 DEF WHEEL3_BOUNDARY Shape {
                   appearance USE WHEEL_COLOUR
                   geometry Cylinder {
-                    height 0.045
+                    height 0.04
                     radius 0.02
                   }
                 }
@@ -407,7 +452,7 @@ Robot {
               metalness 0
             }
             geometry Box {
-              size 0.01 0.003 0.045
+              size 0.01 0.003 0.04
             }
           }
           Transform {
@@ -416,26 +461,32 @@ Robot {
               Shape {
                 appearance USE TRACK_ANI_COLOUR
                 geometry Box {
-                  size 0.003 0.0016 0.045
+                  size 0.003 0.0016 0.04
                 }
               }
             ]
           }
           Transform {
-            translation 0.007 0 0.02
+            translation 0.016 0 0.007
             children [
-              DEF TRACK_SIDE_ANI_SHAPE Shape {
+              Shape {
                 appearance USE TRACK_ANI_COLOUR
                 geometry Box {
-                  size 0.004 0.003 0.003
+                  size 0.004 0.003 0.004
                 }
               }
             ]
           }
           Transform {
-            translation 0.007 0 -0.02
+            translation -0.016 0 0.007
+            rotation 1 0 0 4.692820414042842e-06
             children [
-              USE TRACK_SIDE_ANI_SHAPE
+              Shape {
+                appearance USE TRACK_ANI_COLOUR
+                geometry Box {
+                  size 0.004 0.003 0.004
+                }
+              }
             ]
           }
         ]
@@ -443,7 +494,7 @@ Robot {
       geometriesCount 35
     }
     Track {
-      translation 0.08 0 0.11
+      translation 0.08 0 0.1
       children [
         USE WHEEL1
         USE WHEEL2
@@ -462,15 +513,50 @@ Robot {
       animatedGeometry USE ANIMATION_GROUP
       geometriesCount 35
     }
+    Transform {
+      translation 0 0.098 0.1
+      rotation -1 0 0 0.8927003061004254
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.8 1
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.0075
+          }
+        }
+      ]
+    }
+    Transform {
+      translation 0 0.098 -0.1
+      rotation 1 0 0 0.8927003061004254
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0.8 1
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.08
+            radius 0.0075
+          }
+        }
+      ]
+    }
   ]
+  name "Sakura"
   boundingObject Group {
     children [
       Transform {
-        translation 0 0.03 0
+        translation 0 0.035 0
         children [
           Shape {
             geometry Box {
-              size 0.15 0.07 0.17
+              size 0.15 0.06 0.16
             }
           }
         ]
