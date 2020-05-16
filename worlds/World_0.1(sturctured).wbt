@@ -24,8 +24,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.7402651797213294 0.5954781276059481 0.3121109790364033 5.053042170592769
-  position -10.287919291485021 3.146757024893072 13.224555352087611
+  orientation 0.7809001123322784 0.509227457470917 0.36177674208984256 4.808580686146197
+  position -10.267098541173485 3.389787244971569 12.348873292880766
   followType "Mounted Shot"
 }
 TexturedBackground {
@@ -481,6 +481,20 @@ DEF TASK5_WHITE_ROAD Group {
       numberOfLanes 1
       rightBorder FALSE
       leftBorder FALSE
+      appearance DEF ROAD_COLOR PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+    }
+    DEF white_short StraightRoadSegment {
+      translation -10.1 0.0001 11.05
+      rotation 0 1 0 1.5708003061004252
+      name "Task 5 road 4(1)"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 0.35
       appearance DEF ROAD_COLOR PBRAppearance {
         roughness 1
         metalness 0
