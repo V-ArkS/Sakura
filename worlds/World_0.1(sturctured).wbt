@@ -24,8 +24,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.07618054073753115 0.9903006144822157 0.11619474243305222 1.9953750412081486
-  position 86.15317631646839 13.276641266987074 -23.73880834409079
+  orientation 0.7402651797213294 0.5954781276059481 0.3121109790364033 5.053042170592769
+  position -10.287919291485021 3.146757024893072 13.224555352087611
   followType "Mounted Shot"
 }
 TexturedBackground {
@@ -490,6 +490,21 @@ DEF TASK5_WHITE_ROAD Group {
 }
 DEF TASK5_COLOUR_ROAD Group {
   children [
+    DEF RED_short StraightRoadSegment {
+      translation -9.25 0.0001 11.05
+      rotation 0 1 0 1.5708003061004252
+      name "Red road(2)"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 2
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+    }
     DEF RED StraightRoadSegment {
       translation -9 0.0001 11.05
       rotation 0 1 0 1.5708003061004252
@@ -529,6 +544,21 @@ DEF TASK5_COLOUR_ROAD Group {
       rightBorder FALSE
       leftBorder FALSE
       length 30
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 0.5 0 1
+        roughness 1
+        metalness 0
+      }
+    }
+    DEF violet_short StraightRoadSegment {
+      translation -9.25 0.0001 11.15
+      rotation 0 1 0 1.5708003061004252
+      name "Violet road 2(1)"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 0.3
       appearance DEF ROAD_COLOR PBRAppearance {
         baseColor 0.5 0 1
         roughness 1
@@ -592,6 +622,24 @@ DEF TASK5_COLOUR_ROAD Group {
       rightBorder FALSE
       leftBorder FALSE
       length 30
+      startLine [
+        ""
+      ]
+      appearance DEF ROAD_COLOR PBRAppearance {
+        baseColor 1 1 0
+        roughness 1
+        metalness 0
+      }
+    }
+    DEF yellow_short StraightRoadSegment {
+      translation -9.25 0.0001 10.95
+      rotation 0 1 0 1.5708003061004252
+      name "Yellow road 2(1)"
+      width 0.1
+      numberOfLanes 1
+      rightBorder FALSE
+      leftBorder FALSE
+      length 0.3
       startLine [
         ""
       ]
