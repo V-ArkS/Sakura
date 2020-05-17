@@ -453,7 +453,29 @@ if __name__ == "__main__":
         #         vehicle.releaseFood()
         #         released = True
 
-        # Task 3, 4 调试样码
+        # Task 3 bridge_found 调试样码
+        '''Vehicle.towerSeeRight()
+        if Vehicle.bridge_found():
+            box_found = 1
+        if box_found == 1:
+            Vehicle.setSpeed(vehicle, -0.3, -0.3)
+            if Vehicle.bridge_found():
+                vehicle.setSpeed(0, 0)
+        else:
+            Vehicle.setSpeed(vehicle, 2.0, 2.0)'''
+        
+        # Task 2 box_found 调试样码
+        '''Vehicle.towerSeeRight()
+        if Vehicle.box_found():
+            box_found = 1
+        if box_found == 1:
+            Vehicle.setSpeed(vehicle, -0.3, -0.3)
+            if Vehicle.bridge_found():
+                vehicle.setSpeed(0, 0)
+        else:
+            Vehicle.setSpeed(vehicle, 2.0, 2.0)'''
+        
+        # Task 4 调试样码
         '''if vehicle.arch_found(0.1, 0.2):
             arch_found = 1
         if arch_found == 1:
