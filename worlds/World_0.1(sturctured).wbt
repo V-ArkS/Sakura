@@ -25,7 +25,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.04081207229024688 -0.9196143467340582 -0.3906965933256482 2.9653195622222888
-  position -22.81795272712225 7.510892604502551 -4.428677363773084
+  position -23.386804083552367 7.778644612866407 -4.037583461794558
   follow "Sakura"
 }
 TexturedBackground {
@@ -443,31 +443,11 @@ DEF TASK3_TREES Transform {
     }
   ]
 }
-DEF tree Solid {
+DEF TASK3_OBSTACLE Solid {
   translation -20.01 0 3.01
   name "tree"
   boundingObject Box {
     size 1.5 4 0.1
-  }
-}
-DEF TASK3_OBSTACLE Solid {
-  translation -20 0.1 3.2
-  children [
-    DEF INVISIBLE_OBST_BOUNDARY Shape {
-      appearance PBRAppearance {
-        transparency 1
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
-        size 0.6 0.2 0.1
-      }
-    }
-  ]
-  name "obstacle"
-  boundingObject USE INVISIBLE_OBST_BOUNDARY
-  physics Physics {
-    density 500
   }
 }
 DEF TASK4_ARCH Solid {
