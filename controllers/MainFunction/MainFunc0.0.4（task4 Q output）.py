@@ -342,7 +342,7 @@ class Vehicle:
         camera = Vehicle.camera
         cameraData = camera.getImage()
         frame = np.zeros((HEIGHT, WIDTH))
-        i = 0
+        Q = 0
         position = 0
 
         for x in range(0, WIDTH):
@@ -350,32 +350,36 @@ class Vehicle:
                 gray = int(camera.imageGetGray(cameraData, WIDTH, x, y))
                 if 110 < gray < 130:
                     frame[y][x] = 255
-                    i = i+1
+                    Q = Q+1
                 else:
                     pass
-        #print(i)
+        print(Q, self.positioning(frame, 0, a, b))
         cv2.imwrite('frame.jpg', frame)
         #blur_im = self.edge_detect(frame, 254, 255)
         #cv2.imwrite('blur.jpg', blur_im)
-        if i > 50:
-            position = self.positioning(frame, 0, a, b)
-            #print(i, position)
-            if count_arch == 0:
-                if int(position) < WIDTH / 2:
-                    count_arch = count_arch + 1
-                    for i in range(2):
-                        self.motors[i].setVelocity(0)
-                    return 1
-            else:
-                if int(position) == WIDTH / 2:
-                    for i in range(2):
-                        self.motors[i].setVelocity(0)
-                    return 1
-                else:
-                    return 0
+        if count_arch < 2:
+            if Q > 50:
+                position = self.positioning(frame, 0, a, b)
 
+                if count_arch == 0:
+                    if int(position) < WIDTH / 2:
+                        count_arch = 1
+                        for i in range(2):
+                            self.motors[i].setVelocity(0)
+                        return 1
+                else:
+                    if int(position) > WIDTH / 2:
+                        for i in range(2):
+                            self.motors[i].setVelocity(0)
+                            count_arch = 2
+                        return 1
+                    else:
+                        return 0
+            else:
+                return 0
         else:
-            return 0
+            return Q
+
 
 
 
