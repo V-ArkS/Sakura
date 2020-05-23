@@ -459,9 +459,9 @@ if __name__ == "__main__":
         '''leftSpeed, rightSpeed = Vehicle.linePatrol()
         vehicle.setSpeed(leftSpeed, rightSpeed)'''
 
-        # Task 2 box_found 调试样码
-        # 状态一：停在中点
-        '''vehicle.towerSeeRight()
+        # Task 2 box_found example
+        # State 1: Stop at midpoint
+        vehicle.towerSeeRight()
         if vehicle.box_found() and box_found == 0:
             box_found = 1
         if box_found == 1:
@@ -470,29 +470,29 @@ if __name__ == "__main__":
                 vehicle.setSpeed(0, 0)
                 if -10e-12 < vehicle.getCompass() < -9e-12:
                     box_found = 2
-        # 状态二：转向
+        # State 2: Steering
         elif box_found == 2:
             vehicle.setSpeed(0.5, -0.5)
             vehicle.towerRestore()
             if -1.4 < vehicle.getCompass() < -1.1:
                 box_found = 3
-        # 状态三：停止转向且恢复摄像头
+        # State 3: Stop steering and resume camera
         elif box_found == 3:
             vehicle.setSpeed(0, 0)
             vehicle.towerRestore()
             if -1.52 < vehicle.getCompass() < -1.5:
                 box_found = 4
-        # 状态四：前进🐛！！！
+        # State four: forward 🐛!!!
         elif box_found == 4:
             vehicle.towerRestore()
             vehicle.setSpeed(0.5, 0.5)
         else:
             Vehicle.setSpeed(vehicle, 2.0, 2.0)
 
-        print(vehicle.getCompass())'''
+        print(vehicle.getCompass())
 
         # Task 3 bridge_found 调试样码
-        '''vehicle.towerSeeRight()
+        vehicle.towerSeeRight()
         if vehicle.bridge_found():
             bridge_found = 1
         if bridge_found == 1:
@@ -500,7 +500,7 @@ if __name__ == "__main__":
             if vehicle.bridge_found():
                 vehicle.setSpeed(0, 0)
         else:
-            vehicle.setSpeed(2.0, 2.0)'''
+            vehicle.setSpeed(2.0, 2.0)
 
         # Task 4 bridge_found 调试样码
         '''if vehicle.arch_found(0.1, 0.2):
