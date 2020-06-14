@@ -36,6 +36,7 @@ class Vehicle:
     blur_im = np.zeros((HEIGHT, WIDTH))
     position = WIDTH / 2
 
+
     def __init__(self):
         #get motors, camera and initialise them.
         motorNames = ['left motor', 'right motor', 'tower rotational motor'] #, 'trigger motor']
@@ -419,7 +420,7 @@ class Vehicle:
         camera = Vehicle.camera
         cameraData = camera.getImage()
         frame = np.zeros((HEIGHT, WIDTH))
-        i = 0
+        Q = 0
 
         position = 0
         for x in range(0, WIDTH):
@@ -427,24 +428,24 @@ class Vehicle:
                 gray = int(camera.imageGetGray(cameraData, WIDTH, x, y))
                 if 110 < gray < 130:
                     frame[y][x] = 255
-                    i = i+1
+                    Q = Q+1
         else:
             pass
         #print(i)
         # cv2.imwrite('frame.jpg', frame)
         #blur_im = self.edge_detect(frame, 254, 255)
         #cv2.imwrite('blur.jpg', blur_im)
-        if i > 50:
+        if Q > 50:
             position = self.positioning(frame, 0, a, b)
             #print(i, position)
             if count_arch == 0:
                 if int(position) < WIDTH / 2:
-                    count_arch = count_arch + 1
+                    count_arch = 1
                     for i in range(2):
                         self.motors[i].setVelocity(0)
                     return 1
             else:
-                if int(position) == WIDTH / 2:
+                if int(position) > WIDTH / 2:
                     for i in range(2):
                         self.motors[i].setVelocity(0)
                     return 1
@@ -591,6 +592,7 @@ if __name__ == "__main__":
     rotating2 = 0
     rotating3 = 0
     stop = 0
+    arch_4 = 0
     vehicle.motors[0].setAcceleration(10)
     vehicle.motors[1].setAcceleration(10)
     vehicle.setStage(1)
@@ -651,16 +653,29 @@ if __name__ == "__main__":
             elif rotating1 == 3:
                   target = 0
                   if not (vehicle.turnRound(target - vehicle.getCompass())):
-                       vehicle.setSpeed(0.5, 0.5)
+                       vehicle.towerSeeLeft()
+                       vehicle.motors[0].setAcceleration(5)
+                       vehicle.motors[1].setAcceleration(5)
+                       vehicle.setSpeed(4.0, 4.0)
                        rotating1 = 4
             else:
                   vehicle.setStage(4)
         elif stage == 4:
             if rotating2 == 0:
-                vehicle.towerSeeLeft()
+                if arch_4 == 1:
+                    vehicle.setSpeed(-0.3, -0.3)
+                    if vehicle.arch_found(0.1, 0.2):
+                        vehicle.setSpeed(0, 0)
+                        vehicle.towerRestore()
+                        rotating2 = 1
+                    else:
+                        pass
+                else:
+                    pass
                 if vehicle.arch_found(0.1, 0.2):
-                    vehicle.towerRestore()
-                    rotating2 = 1
+                    arch_4 = 1
+
+
             elif rotating2 == 1:
                   target = np.pi / 2
                   if not (vehicle.turnRound(target - vehicle.getCompass())):
