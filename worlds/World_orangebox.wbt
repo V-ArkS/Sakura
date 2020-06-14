@@ -24,9 +24,10 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.010171358170589175 0.9184607745216068 0.3953812705960358 3.0792483811041405
-  position 48.80449128914927 0.06286521688970714 -11.615628332078243
+  orientation -0.41732028694782 0.7948213307985179 0.44057102742856585 1.8372989011141936
+  position -3.2280502882612474 13.038128156325872 12.1614080531346
   follow "Sakura"
+  followType "None"
 }
 TexturedBackground {
   texture "noon_park_empty"
@@ -35,7 +36,7 @@ TexturedBackgroundLight {
   texture "noon_park_empty"
 }
 DEF FLOOR Solid {
-  translation 0 -0.5 0
+  translation -0.0652931 -0.5 0.0174987
   children [
     DEF FLOOR_GEO Group {
       children [
@@ -299,25 +300,21 @@ DEF TASK1_LINES Group {
   ]
 }
 DEF TASK2_ORANGE Solid {
-  translation -5.76241e-19 0.0587921 -5.995
+  translation -5.76241e-19 0.04 -5.985
   rotation 1 1.3683e-15 -1.14473e-15 3.11522
   children [
     DEF ORANGE_BOUNDARY Shape {
       appearance PBRAppearance {
         baseColor 1 0.3 0
-        roughness 1
         metalness 0
       }
       geometry Box {
-        size 0.12 0.12 0.01
+        size 0.5 0.08 0.01
       }
     }
   ]
   name "Orange box"
   boundingObject USE ORANGE_BOUNDARY
-  physics Physics {
-    density 500
-  }
 }
 DEF TASK3_BRIDGE Group {
   children [
@@ -813,7 +810,7 @@ DEF TASK3-Tree Solid {
 }
 Robot {
   translation 48.8649 0.0250014 -11.4418
-  rotation 6.68224e-07 1 -4.61197e-07 -3.1415853071795863
+  rotation -6.68224e-07 -1 4.61197e-07 3.14159
   children [
     DEF Arm Group {
       children [
@@ -870,8 +867,8 @@ Robot {
                       }
                     ]
                     endPoint Solid {
-                      translation 2.578489999999762e-09 -0.012692368113812793 -0.01545365708120747
-                      rotation 0.9999999999999921 -5.569537142880101e-08 1.1205011500684002e-07 0.8831935122509222
+                      translation 2.5784899999997174e-09 -0.012692368113812615 -0.015453657081207252
+                      rotation 0.9999999999999927 -5.3669402756384273e-08 1.0797419241361787e-07 0.8831935133983052
                       children [
                         SliderJoint {
                           jointParameters JointParameters {
@@ -887,7 +884,7 @@ Robot {
                             }
                           ]
                           endPoint Solid {
-                            translation -3.3137138779833116e-06 -0.01000181890054674 -5.330583827400925e-07
+                            translation -3.3137138779833116e-06 -0.010001818900546737 -5.330583827400925e-07
                             rotation 0.9990298451074442 0.012121336965071465 0.042337238629547566 4.748280911452462e-06
                             children [
                               HingeJoint {
@@ -901,8 +898,8 @@ Robot {
                                   }
                                 ]
                                 endPoint Solid {
-                                  translation 0.024999999999971323 -0.020001399999702386 -2.989691515325567e-07
-                                  rotation -1.534302572092444e-08 8.99335687497256e-08 -0.9999999999999958 1.5707953912123611
+                                  translation 0.02499999999997151 -0.020001399999702386 -2.9896915153256077e-07
+                                  rotation -1.5343025720924477e-08 8.993356874972542e-08 -0.9999999999999958 1.5707953912123611
                                   children [
                                     SliderJoint {
                                       jointParameters JointParameters {
@@ -963,8 +960,8 @@ Robot {
                                                     }
                                                   ]
                                                   endPoint Solid {
-                                                    translation -7.491933227932402e-06 0.029998292446883457 -1.5123076326187898e-07
-                                                    rotation -0.053106564669777284 0.7027237307589526 0.7094780130611477 3.384893146634269e-07
+                                                    translation -7.491933227932302e-06 0.029998292446883457 -1.5123076326713415e-07
+                                                    rotation -0.05310647757944412 0.7027249120096354 0.7094768495730879 3.384893146634269e-07
                                                     children [
                                                       SliderJoint {
                                                         jointParameters JointParameters {
@@ -1555,7 +1552,7 @@ Robot {
       translation 0.075 0 0.05
       lookupTable [
         0 0 0
-        0.12 1000 0
+        0.105 1000 0
       ]
     }
     DistanceSensor {
@@ -1754,7 +1751,7 @@ Robot {
   physics Physics {
     mass 400
   }
-  controller "PySakura0523"
+  controller "PySakura_orangebox"
 }
 Solid {
   translation 48.8049 0.02 -11.5775
@@ -1776,4 +1773,72 @@ Solid {
   physics Physics {
     density 600
   }
+}
+DEF TASK2_ORANGE Solid {
+  translation -0.253717 0.04 -5.93
+  rotation 0 1 0 1.5708
+  children [
+    DEF ORANGE_BOUNDARY Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.3 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.12 0.08 0.01
+      }
+    }
+  ]
+  name "Orange box(1)"
+  boundingObject USE ORANGE_BOUNDARY
+}
+DEF TASK2_ORANGE Solid {
+  translation 0.255727 0.04 -5.93
+  rotation 0.7070760418060426 0.00932428055130035 0.7070760418060426 3.12294
+  children [
+    DEF ORANGE_BOUNDARY Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.3 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.12 0.08 0.01
+      }
+    }
+  ]
+  name "Orange box(2)"
+  boundingObject USE ORANGE_BOUNDARY
+}
+DEF TASK2_ORANGE Solid {
+  translation -5.76241e-19 0.04 -5.875
+  rotation 1 1.3683e-15 -1.14473e-15 3.11522
+  children [
+    DEF ORANGE_BOUNDARY Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.3 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.5 0.08 0.01
+      }
+    }
+  ]
+  name "Orange box(3)"
+  boundingObject USE ORANGE_BOUNDARY
+}
+DEF TASK2_ORANGE Solid {
+  translation -5.76241e-19 0.005 -5.93
+  rotation 0.9999999999999999 9.58979e-09 -1.26463e-10 3.1152153071795863
+  children [
+    DEF ORANGE_BOUNDARY Shape {
+      appearance PBRAppearance {
+        baseColor 1 0.3 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.5 0.01 0.1
+      }
+    }
+  ]
+  name "Orange box(4)"
+  boundingObject USE ORANGE_BOUNDARY
 }

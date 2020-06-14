@@ -1,49 +1,7 @@
-#VRML_SIM R2020a utf8
-WorldInfo {
-  contactProperties [
-    ContactProperties {
-      material1 "track"
-      material2 "floor"
-      coulombFriction [
-        500
-      ]
-      softCFM 1e-05
-    }
-  ]
-}
-Viewpoint {
-  orientation -0.3049426595104801 -0.937297310561045 -0.16877122392667326 1.0987173941396597
-  position -0.8689660533855493 0.4997363622385717 0.6630355181542903
-  follow "Sakura"
-  followType "Mounted Shot"
-}
-TexturedBackground {
-  texture "noon_park_empty"
-}
-TexturedBackgroundLight {
-  texture "noon_park_empty"
-}
-DEF Floor Solid {
-  translation 0 -0.5 0
-  children [
-    DEF FLOOR_BOUNDARY Shape {
-      appearance PBRAppearance {
-        baseColor 0.2 0.2 0.2
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
-        size 10 1 10
-      }
-    }
-  ]
-  name "floor"
-  contactMaterial "floor"
-  boundingObject USE FLOOR_BOUNDARY
-}
+#VRML_OBJ R2020a utf8
 Robot {
-  translation -0.019999879302492037 0.02499776474287824 -8.391364951457897e-07
-  rotation -2.3380356610809536e-07 -0.9999999999993647 1.1026390455287903e-06 1.570799881160782
+  translation 1.57052 0.0246051 -4.19703
+  rotation -4.34416e-07 1 -6.68222e-07 3.14159
   children [
     DEF Arm Group {
       children [
@@ -70,59 +28,58 @@ Robot {
         }
         SliderJoint {
           jointParameters JointParameters {
-            position 1.129910180015539e-06
+            position 3.7664342774010373e-07
             axis 0 -0.0058 0.008
           }
           device [
             PositionSensor {
-              name "arm_position_sensor_1"
+              name "sensor5"
             }
             LinearMotor {
-              name "arm_motor_1"
+              name "motor1"
+              acceleration 10
             }
           ]
           endPoint Solid {
-            translation 0 0.09400013677936567 0.10285691478708184
-            rotation -1 0 0 0.950002
+            translation 9.900071873403249e-10 0.093999897826311 0.10285582264667598
+            rotation -0.9999999999999999 7.056932190092974e-09 -1.3722458032201886e-08 0.9500019201826014
             children [
               DEF ARM Group {
                 children [
                   HingeJoint {
                     jointParameters HingeJointParameters {
-                      position 5.1505941894685905e-08
+                      position 1.7100078809925446e-08
                     }
                     device [
                       PositionSensor {
-                        name "arm_position_sensor_2"
+                        name "sensor1"
                       }
                       RotationalMotor {
-                        name "arm_motor_2"
+                        name "motor2"
+                        acceleration 10
                       }
                     ]
                     endPoint Solid {
-                      translation 2.578489999999846e-09 -0.019997793016173403 4.896873132381017e-08
-                      rotation 0.1531678371178528 -0.019460599916261038 0.9880085519485843 1.1151007970493858e-07
+                      translation 2.578489999999847e-09 -0.019997793016172084 4.965677265232314e-08
+                      rotation -0.1632215589537519 -0.019428862504722907 0.98639811536442 1.0745380149674385e-07
                       children [
                         SliderJoint {
                           jointParameters JointParameters {
-                            position 7.385810863271607e-07
+                            position 2.4619474376129305e-07
                             axis 0 -1 0
                           }
                           device [
-                            PositionSensor {
-                              name "arm_position_sensor_3"
-                            }
                             LinearMotor {
-                              name "arm_motor_3"
+                              name "motor3"
                             }
                           ]
                           endPoint Solid {
-                            translation -3.3137138779833116e-06 -0.010000696132822182 -5.330583827400925e-07
+                            translation -3.3137138779833116e-06 -0.010000203746479617 -5.330583827400925e-07
                             rotation 0.9990298451074442 0.012121336965071465 0.042337238629547566 4.748280911452462e-06
                             children [
                               HingeJoint {
                                 jointParameters HingeJointParameters {
-                                  position 9.384278751933055e-08
+                                  position 6.636120243279655e-08
                                   axis 0 1 0
                                 }
                                 device [
@@ -131,41 +88,38 @@ Robot {
                                   }
                                 ]
                                 endPoint Solid {
-                                  translation 0.02499999999997637 -0.020001399999999763 -2.985970147155782e-07
-                                  rotation -7.900544028071311e-09 8.24910797621529e-08 -0.9999999999999966 1.5707953912123682
+                                  translation 0.02499999999998456 -0.020001399999999763 -2.9790997508841813e-07
+                                  rotation 5.840248515195634e-09 6.875027436323587e-08 -0.9999999999999977 1.5707953912123656
                                   children [
                                     SliderJoint {
                                       jointParameters JointParameters {
-                                        position -1.3397447265659046e-12
+                                        position -4.4786225804352665e-13
                                         axis 0 1 0
                                       }
                                       device [
                                         PositionSensor {
-                                          name "arm_position_sensor_4"
+                                          name "sensor2"
                                         }
                                         LinearMotor {
-                                          name "arm_motor_4"
+                                          name "motor4"
                                         }
                                       ]
                                       endPoint Solid {
-                                        translation 2.9536e-07 -1.1274698436564393e-12 -1.54558e-07
+                                        translation 2.9536e-07 -6.804739567447777e-13 -1.54558e-07
                                         rotation -0.10078159092239526 6.410076198584925e-05 -0.9949085720920506 4.903282403113506e-09
                                         children [
                                           SliderJoint {
                                             jointParameters JointParameters {
-                                              position -7.38768473208429e-13
+                                              position -2.469681258214556e-13
                                               axis 0 1 0
                                             }
                                             device [
-                                              PositionSensor {
-                                                name "arm_position_sensor_8"
-                                              }
                                               LinearMotor {
-                                                name "arm_motor_8"
+                                                name "motor8"
                                               }
                                             ]
                                             endPoint Solid {
-                                              translation 0 -7.38768473208429e-13 0
+                                              translation 0 -4.931558936491479e-13 0
                                               children [
                                                 DEF FOREARM3 Shape {
                                                   appearance PBRAppearance {
@@ -180,36 +134,36 @@ Robot {
                                                 }
                                                 HingeJoint {
                                                   jointParameters HingeJointParameters {
-                                                    position -2.6197206705129984e-09
+                                                    position -1.4318368576012283e-13
                                                     axis 0 1 0
                                                   }
                                                   device [
                                                     PositionSensor {
-                                                      name "arm_position_sensor_7"
+                                                      name "sensor6"
                                                     }
                                                     RotationalMotor {
-                                                      name "arm_motor_7"
+                                                      name "motor7"
                                                     }
                                                   ]
                                                   endPoint Solid {
-                                                    translation -7.491933227534284e-06 0.02999829244688347 -1.5123078298458227e-07
-                                                    rotation -0.053382893663113246 0.6989559047209102 0.7131696221236057 3.3717478808715265e-07
+                                                    translation -7.49193322792855e-06 0.02999829244688347 -1.5123076345187347e-07
+                                                    rotation -0.05308697866553817 0.7029892863821458 0.7092163533986553 3.384893146634269e-07
                                                     children [
                                                       SliderJoint {
                                                         jointParameters JointParameters {
-                                                          position 1.7953985435790783e-08
+                                                          position 5.984687512868526e-09
                                                           axis 0 0 -1
                                                         }
                                                         device [
                                                           PositionSensor {
-                                                            name "arm_position_sensor_5"
+                                                            name "sensor3"
                                                           }
                                                           LinearMotor {
-                                                            name "arm_motor_5"
+                                                            name "motor5"
                                                           }
                                                         ]
                                                         endPoint Solid {
-                                                          translation -1.14516e-08 0.005 0.00999998219317593
+                                                          translation -1.14516e-08 0.005 0.009999994162473852
                                                           rotation -0.7156965541733086 0.6984107886166848 -0.0009014922477970785 -3.4441963662310834e-08
                                                           children [
                                                             DEF LEFTFINGER Shape {
@@ -231,18 +185,18 @@ Robot {
                                                       }
                                                       SliderJoint {
                                                         jointParameters JointParameters {
-                                                          position -1.795398544659689e-08
+                                                          position -5.9846875059415994e-09
                                                         }
                                                         device [
                                                           PositionSensor {
-                                                            name "arm_position_sensor_6"
+                                                            name "sensor4"
                                                           }
                                                           LinearMotor {
-                                                            name "arm_motor_6"
+                                                            name "motor6"
                                                           }
                                                         ]
                                                         endPoint Solid {
-                                                          translation 0 0.005 -0.010000017953985446
+                                                          translation 0 0.005 -0.010000005984687506
                                                           children [
                                                             DEF RIGHTFINGER Shape {
                                                               appearance PBRAppearance {
@@ -783,6 +737,10 @@ Robot {
     DistanceSensor {
       translation 0.075 0 0
     }
+    DistanceSensor {
+      translation 0.0605 0.2 0
+      name "distance sensor2"
+    }
     Track {
       translation 0.08 0 -0.1
       children [
@@ -878,6 +836,7 @@ Robot {
       device [
         LinearMotor {
           name "left motor"
+          acceleration 20
         }
       ]
       animatedGeometry DEF ANIMATION_GROUP Group {
@@ -945,6 +904,7 @@ Robot {
       device [
         LinearMotor {
           name "right motor"
+          acceleration 20
         }
       ]
       animatedGeometry USE ANIMATION_GROUP
@@ -967,24 +927,7 @@ Robot {
     ]
   }
   physics Physics {
+    mass 400
   }
-  controller "arm_controller"
-}
-Solid {
-  translation -0.156 0.00499961 0.062
-  children [
-    DEF BOX Shape {
-      appearance PBRAppearance {
-        baseColor 1 0.8 1
-        roughness 1
-        metalness 0
-      }
-      geometry Box {
-        size 0.01 0.01 0.01
-      }
-    }
-  ]
-  boundingObject USE BOX
-  physics Physics {
-  }
+  controller "PySakura0519"
 }

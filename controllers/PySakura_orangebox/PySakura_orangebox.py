@@ -36,7 +36,6 @@ class Vehicle:
     blur_im = np.zeros((HEIGHT, WIDTH))
     position = WIDTH / 2
 
-
     def __init__(self):
         #get motors, camera and initialise them.
         motorNames = ['left motor', 'right motor', 'tower rotational motor'] #, 'trigger motor']
@@ -394,7 +393,7 @@ class Vehicle:
                     num1 = num1 + 1
         if num1:
             position_i = axis / num1 + 1
-        if abs(position_i - 1.5 * HALF) < 10:
+        if abs(position_i - 1.5 * HALF) < 20:
             # print('pi = ', position_i)
             for axis_v in range(int(HEIGHT * 0.82), int(HEIGHT * 0.85)):
                 for axis_h in range(WIDTH * 0, int(WIDTH * 1)):
@@ -402,7 +401,7 @@ class Vehicle:
                         axis_i = axis_h
                         axis = min(axis_i, axis)
             # print('axis = ', axis)
-            if abs(axis - 0.5 * WIDTH) < 5:
+            if abs(axis - 0.5 * WIDTH) < 20:
                 return True
             else:
                 return False
@@ -440,7 +439,7 @@ class Vehicle:
             #print(i, position)
             if count_arch == 0:
                 if int(position) < WIDTH / 2:
-                    count_arch = 1
+                    count_arch = count_arch + 1
                     for i in range(2):
                         self.motors[i].setVelocity(0)
                     return 1
@@ -488,7 +487,7 @@ class Vehicle:
         if (flag == -1) and (3.12 < abs(compass) < 3.15):
             for x in range(0, 3):
                 for y in range(0, 3):
-                    gray = int(camera.imageGetGray(cameraData, WIDTH, x + int(0.5 * WIDTH), y + int(0.80 * HEIGHT)))
+                    gray = int(camera.imageGetGray(cameraData, WIDTH, x + int(0.5 * WIDTH), y + int(0.90 * HEIGHT)))
                     color_kernel[y][x] = gray
 
             gray_average = np.mean(color_kernel)
@@ -501,14 +500,14 @@ class Vehicle:
                 flag = 2  # purple
             else:
                 pass
-            # print('color flag=', flag)
+            print('color flag=', flag)
             leftSpeed = 2.0
             rightSpeed = 2.0
 
         elif flag == 0 or flag == 1 or flag == 2:
             for x in range(0, 3):
                 for y in range(0, 3):
-                    gray = int(camera.imageGetGray(cameraData, WIDTH, x + int(0.5 * WIDTH), y + int(0.95 * HEIGHT)))
+                    gray = int(camera.imageGetGray(cameraData, WIDTH, x + int(0.5 * WIDTH), y + int(0.8 * HEIGHT)))
                     color_kernel[y][x] = gray
             gray_average = np.mean(color_kernel)
             if 90 < gray_average < 100:
@@ -568,8 +567,8 @@ class Vehicle:
                 leftSpeed = (position / WIDTH) * 1.5
                 rightSpeed = (1 - position / WIDTH) * 1.5
             elif 2.5 < abs(position - WIDTH / 2) < 5:
-                leftSpeed = (position / WIDTH) * 0.9
-                rightSpeed = (1 - position / WIDTH) * 0.9
+                leftSpeed = (position / WIDTH) * 0.8
+                rightSpeed = (1 - position / WIDTH) * 0.8
             # if lines are losted in the view of camera, try adjust parameters here
             else:
                 leftSpeed = 1
@@ -615,7 +614,7 @@ if __name__ == "__main__":
                 target = -np.pi / 2
                 if not (vehicle.turnRound(target - vehicle.getCompass())):
                     vehicle.towerRestore()
-                    if vehicle.getDistanceValue(1) > 950:
+                    if vehicle.getDistanceValue(1) > 900:
 #there is tiny possibility that the distance sensor can not find orange box
 #because specification of PC is different, the stop position of vehicle can have slight difference.
 #if it happens, try to adjust the position of "distance sensor" (the first one)set in children of robot to fix it.
@@ -644,8 +643,8 @@ if __name__ == "__main__":
                     vehicle.towerRestore()
                     rotating1 = 2
             elif rotating1 == 2:
-                if vehicle.getDistanceValue(2) > 990:  
-                    vehicle.setSpeed(0.8, 0.8)
+                if vehicle.getDistanceValue(2) > 950:  
+                    vehicle.setSpeed(0.4, 0.4)
                     #if your vehicle can not pass the bridge, try to change the speed here
                 else:
                     vehicle.setSpeed(0, 0) 
@@ -653,11 +652,11 @@ if __name__ == "__main__":
             elif rotating1 == 3:
                   target = 0
                   if not (vehicle.turnRound(target - vehicle.getCompass())):
-                       vehicle.towerSeeLeft()
-                       vehicle.motors[0].setAcceleration(5)
-                       vehicle.motors[1].setAcceleration(5)
-                       vehicle.setSpeed(4.0, 4.0)
-                       rotating1 = 4
+                      vehicle.towerSeeLeft()
+                      vehicle.motors[0].setAcceleration(5)
+                      vehicle.motors[1].setAcceleration(5)
+                      vehicle.setSpeed(4.0, 4.0)
+                      rotating1 = 4
             else:
                   vehicle.setStage(4)
         elif stage == 4:
@@ -674,7 +673,6 @@ if __name__ == "__main__":
                     pass
                 if vehicle.arch_found(0.1, 0.2):
                     arch_4 = 1
-
 
             elif rotating2 == 1:
                   target = np.pi / 2
